@@ -1,7 +1,7 @@
 /* 
- * File:   timer.c
+ * File:   pconfig.c
  * Author: Kenner Marqueti Couto / Felix Hahn
- * Comments:
+ * Comments: Port configuration and other functions
  * Revision history: 
  */
 
@@ -9,6 +9,15 @@
 #include <p24HJ128GP202.h>
 #include <stdlib.h>
 #include <p24Hxxxx.h>
+
+#define NPIXEL 2000
+#define _XTAL_FREQ 10000000L
+#define T1 5                          //Zyklenzahl für 5000ns   12
+#define T2 1                           //Zyklenzahl für 500ns   2   
+#define T3 4
+
+ int debug =0;
+
 void pconfig (void){
    
     //PORT CONFIG BEGIN
@@ -63,4 +72,50 @@ void pconfig (void){
     
     //PORT CONFIG END
     
+}
+
+void af_raspi (void){
+
+T2CONbits.TON = 1;                  // Start Timer
+    
+    PORTBbits.RB3 = 1;                  //ICG is pulled to LOW
+    //int ICG = 1;
+    /*for (int a=0; a<T2; a++)            //T2 (waiting time between SH & /ICG)
+        {
+        Nop();
+        Nop();
+       
+        }*/
+    
+     Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); //Nop(); Nop(); Nop(); Nop();
+     
+    debug = 2;
+   
+    PORTBbits.RB4 = 0;                  //SH goes HIGH 
+    //int SH = 0; 
+    for (int b=0; b<T3; b++)           //T3 (wait time if SH HIGH)
+        {
+        Nop();
+        Nop();
+        Nop();
+        Nop();
+        Nop();
+       // Nop();
+        //Nop();
+        
+        }
+    PORTBbits.RB4 = 1;                  //SH wird LOW 
+    //SH = 1;
+    for (int c=0; c<T1; c++)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
+        {
+        //Nop();
+        Nop();
+        }
+    PORTBbits.RB3 = 0;                  //ICG wird LOW
+    //ICG = 0;
+    /*AUSLESEN BEGINNT*/
+    
+   
+    IEC0bits.AD1IE = 1;
+   // DMA0CONbits.CHEN = 1;
 }

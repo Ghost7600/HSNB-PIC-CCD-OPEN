@@ -12,6 +12,14 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+#define NPIXEL 2000
+#define _XTAL_FREQ 10000000L
+#define T1 5                          //Zyklenzahl für 5000ns   12
+#define T2 1                           //Zyklenzahl für 500ns   2   
+#define T3 4
+
+extern int debug;
+
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate
@@ -37,6 +45,26 @@
 
     <p><b>Remarks:</b></p>
  */
+    
+    
+    /**
+  
+    <p><b>Summary: Routine after raspis signal</b></p>
+
+    <p><b>Parameters: null </b></p>
+
+    <p><b>Returns: null </b></p>
+
+    <p><b>Example:af_raspi()</b></p>
+    <code>
+    void af_raspi (void);
+    </code>
+
+    <p><b>Remarks:</b></p>
+ */
+    
+    void af_raspi (void);
+    
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation
 
