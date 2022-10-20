@@ -3,21 +3,73 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Zeilenkamera</name>
-            <creation-uuid>6f53f209-e317-4bfb-a54e-0bf9cc09da1f</creation-uuid>
+            <name>testtttt</name>
+            <creation-uuid>199e6c9b-b434-4628-9ea2-37587362e485</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions>h</header-extensions>
-            <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <asminc-extensions/>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>../examples/ce401_adc_1msps/firmware/src</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>default</name>
+                    <name>XC16_24FJ256GA110</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24FJ256GA110</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24F04KA200</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24F04KA200</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24FJ64GC010</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24FJ64GC010</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24FJ256DA210</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24FJ256DA210</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24EP128GP202</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24EP128GP202</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24HJ128GP202</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24HJ128GP202</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>XC16_24EP512GU814</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>C30_24EP512GU814</name>
                     <type>2</type>
                 </confElem>
             </confList>

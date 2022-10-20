@@ -4,11 +4,11 @@ Tool Name:
   c:\program files\microchip\xc16\v2.00\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000012e8.00 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000012e8.01 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000012e8.02 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000012e8.03 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000012e8.04 \
+  -TC:\\Users\\lg20093\\AppData\\Local\\Temp\\tmp00001a2c.00 \
+  -TC:\\Users\\lg20093\\AppData\\Local\\Temp\\tmp00001a2c.01 \
+  -TC:\\Users\\lg20093\\AppData\\Local\\Temp\\tmp00001a2c.02 \
+  -TC:\\Users\\lg20093\\AppData\\Local\\Temp\\tmp00001a2c.03 \
+  -TC:\\Users\\lg20093\\AppData\\Local\\Temp\\tmp00001a2c.04 \
   -p24HJ128GP202 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/dsPIC33F-GP-MC_DFP/1.3.64/xc16 \
   -o \
@@ -110,9 +110,9 @@ reserve_data_0x822           0x822                 0x2             0x2  (2)
 reserve_data_0x824           0x824                 0x2             0x2  (2)
 reserve_data_0x826           0x826                0x2a            0x2a  (42)
 .nbss                        0x850                   0             0x6  (6)
-.bss                         0x856                   0          0x13e6  (5094)
+.bss                         0x856                   0          0x1f40  (8000)
 
-                 Total "data" memory used (bytes):         0x143c  (5180) 63%
+                 Total "data" memory used (bytes):         0x1f96  (8086) 98%
 
 
 Dynamic Memory Usage
@@ -120,11 +120,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x1c3c                               0xbc4  (3012)
+stack                       0x2796                                0x6a  (106)
 
-                 Maximum dynamic memory (bytes):          0xbc4  (3012)
-
-Info: Project is using a large data memory model when small data memory model is sufficient.
+                 Maximum dynamic memory (bytes):           0x6a  (106)
 
 
 External Symbols in Data Memory (by address):
@@ -133,9 +131,11 @@ External Symbols in Data Memory (by address):
                     0x0852                  _i
                     0x0854                  _c
                     0x0856                  _buffer
+                    0x17f6                  _I2CDataBuffer
 
 External Symbols in Data Memory (by name):
 
+                    0x17f6                  _I2CDataBuffer
                     0x0856                  _buffer
                     0x0854                  _c
                     0x0852                  _i
@@ -287,17 +287,17 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS–U
+ __FBS.sec        0xf80000          0x2 /CW/_FBS@∆
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSS0∂
+ __FSS.sec        0xf80002          0x2 /CW/_FSS0∂
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSêQÀ
+ __FGS.sec        0xf80004          0x2 /CW/_FGSÄA∆
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -330,14 +330,14 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x252d
+.debug_info       0x000000       0x2522
  *(.debug_info)
- .debug_info      0x000000       0x252d build/default/debug/main.o
+ .debug_info      0x000000       0x2522 build/default/debug/main.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x1cf
+.debug_abbrev     0x000000        0x1e0
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x1cf build/default/debug/main.o
+ .debug_abbrev    0x000000        0x1e0 build/default/debug/main.o
 
 .debug_line       0x000000        0x1cd
  *(.debug_line)
@@ -358,10 +358,10 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0x84
+                  0x000000         0x96
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x84 build/default/debug/main.o
+                  0x000000         0x96 build/default/debug/main.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1038,9 +1038,9 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/default/debug/Zeilenkamera.X.debug.elf elf32-pic30)
-LOAD /CW/_FGSêQÀ
-LOAD /CW/_FSS0∂
-LOAD /CW/_FBS–U
+LOAD /CW/_FGSÄA∆
+LOAD /CW/_FSS0∂
+LOAD /CW/_FBS@∆
 LOAD default_isr
 LOAD data_init
 
@@ -1064,9 +1064,10 @@ __c30_signature
                     0x0852                  _i
                     0x0854                  _c
 
-.bss                0x0856       0x13e6
- .bss               0x0856       0x13e6 build/default/debug/main.o
+.bss                0x0856       0x1f40
+ .bss               0x0856       0x1f40 build/default/debug/main.o
                     0x0856                  _buffer
+                    0x17f6                  _I2CDataBuffer
 
 .config_JTAGEN    0xf8000e          0x2
  .config_JTAGEN

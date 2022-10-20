@@ -1,0 +1,15 @@
+main.c:119:5:main	16	static
+main.c:248:6:SystemClock_Config	96	static
+main.c:299:13:MX_ADC1_Init	48	static
+main.c:378:13:MX_ADC2_Init	32	static
+main.c:441:13:MX_I2C1_Init	8	static
+main.c:487:13:MX_TIM1_Init	112	static
+main.c:575:13:MX_USART2_UART_Init	8	static
+main.c:608:13:MX_DMA_Init	16	static
+main.c:641:13:MX_GPIO_Init	48	static
+main.c:681:6:Run_Motor	8	static
+main.c:694:6:Stop_Motor	8	static
+main.c:707:6:HAL_ADC_ConvCpltCallback	40	static
+main.c:751:6:HAL_I2C_SlaveRxCpltCallback	16	static
+main.c:796:6:HAL_I2C_SlaveTxCpltCallback	16	static
+main.c:813:6:Error_Handler	4	static
