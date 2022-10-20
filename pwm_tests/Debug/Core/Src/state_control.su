@@ -1,0 +1,16 @@
+state_control.c:75:6:run_motor_control_stmachine	8	static
+state_control.c:102:23:run_state	16	static
+state_control.c:107:20:lookup_transitions	32	static
+state_control.c:144:23:st_initial	4	static,ignoring_inline_asm
+state_control.c:150:23:st_idle	4	static
+state_control.c:158:23:st_speeding_up	8	static
+state_control.c:165:23:st_motor_ready	4	static,ignoring_inline_asm
+state_control.c:171:23:st_speeding_down	8	static
+state_control.c:186:23:st_error	4	static,ignoring_inline_asm
+state_control.c:202:28:tr_request_start	4	static
+state_control.c:218:28:tr_constant_current_reached	4	static
+state_control.c:234:28:tr_request_stop	4	static
+state_control.c:248:28:tr_motor_is_down	8	static
+state_control.c:259:28:tr_isFail	4	static
+state_control.c:265:28:tr_ack_error	4	static
+state_control.c:271:28:tr_return_true	4	static

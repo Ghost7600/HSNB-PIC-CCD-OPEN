@@ -1,0 +1,3 @@
+pwm_generator.c:22:8:s_pwm	24	static
+pwm_generator.c:43:8:sv_pwm_120_ls	32	static
+pwm_generator.c:66:5:get_LUT	32	static

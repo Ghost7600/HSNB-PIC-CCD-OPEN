@@ -1,0 +1,2 @@
+sv_svpwm.c:25:8:sinsulc	32	static
+sv_svpwm.c:49:5:get_LUT	32	static
