@@ -16,16 +16,16 @@ void set_timer (void){
 
 //TIMER SETUP BEGIN
        /*TIMER2*/
-        T2CONbits.TON = 0;      // Disable Timer
+        T2CONbits.TON = 1;      // Disable Timer
         T2CONbits.TCS = 0;      // Select internal instruction cycle clock
         T2CONbits.TGATE = 0;    // Disable Gated Timer mode
-        T2CONbits.TCKPS = 0b00; // Select 1:1 Prescaler
+        T2CONbits.TCKPS = 0b11; // Select 1:256  Prescaler
         TMR2 = 0x00;            // Clear timer register
         PR2 = 10;                // Load the period value 9+1 cycles => 4Mhz 
                                 /*--> Interruptroutine toggelt Pin --> 2x in die ISR = 1Cycle => 2MHz Rechteckschwingung*/ 
         IPC1bits.T2IP = 0x01;   // Set Timer1 Interrupt Priority Level
         IFS0bits.T2IF = 0;      // Clear Timer1 Interrupt Flag
-        IEC0bits.T2IE = 0;      // Enable Timer1 interrupt
+        IEC0bits.T2IE = 1;      // Enable Timer1 interrupt
          
 //    int a = 2;    debug infinite loop
 //    while (a <= 10 ){
