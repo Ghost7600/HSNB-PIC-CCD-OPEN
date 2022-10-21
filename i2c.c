@@ -1,5 +1,5 @@
 /* 
- * File:   oc.c
+ * File:   i2c.c
  * Author: Kenner Marqueti Couto / Felix Hahn
  * Comments: I2C for PIC 24HJ128GP
  * Revision history: 
