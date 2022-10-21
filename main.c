@@ -116,7 +116,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 {
 /* Interrupt Service Routine code goes here */
         
- //  PORTBbits.RB2 = ~PORTBbits.RB2;     //Pin Toggle Phi(M)-Signal
+    //PORTBbits.RB2 = ~PORTBbits.RB2;     //Pin Toggle Phi(M)-Signal
     IFS0bits.T2IF = 0;                  // Clear Timer1 Interrupt Flag       
     return;
 }
