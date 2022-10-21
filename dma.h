@@ -36,5 +36,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	XC_TIMER_H
+#endif	XC_DMA_H
 
