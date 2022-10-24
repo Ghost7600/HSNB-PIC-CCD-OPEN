@@ -14,7 +14,7 @@
 #include "oc.h"
 #include "clkswitch.h"
 #include "pconfig.h"
-#include "I2Cdrv.h"
+#include "I2C.h"
 #include "process_sample.h"
 
 //#include <adcDrv2.h>

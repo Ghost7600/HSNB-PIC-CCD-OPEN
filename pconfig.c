@@ -5,6 +5,11 @@
  * Revision history: 
  */
 
+// This is a guard condition so that contents of this file are not included
+// more than once.  
+//#ifndef XC_PCONFIG_H
+//#define	XC_PCONFIG_H
+
 #include <xc.h>
 #include <p24HJ128GP202.h>
 #include <stdlib.h>
@@ -119,3 +124,5 @@ T2CONbits.TON = 1;                  // Start Timer
     IEC0bits.AD1IE = 1;
    // DMA0CONbits.CHEN = 1;
 }
+
+//#endif	XC_PCONFIG_H

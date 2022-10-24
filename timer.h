@@ -38,5 +38,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	XC_TIMER_H
+#endif	//XC_TIMER_H
 

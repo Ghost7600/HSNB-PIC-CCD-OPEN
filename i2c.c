@@ -37,5 +37,13 @@ void i2cwrite (uint8_t highByte, uint8_t lowByte, uint8_t data)
         
     }
     
+    I2C1TRN = 0b010100000; // 0baaaacccx aaaa=device number bbb=device given tag on i2c x=0 for write x=1 for read 
+  
+    while (I2C1STATbits.TRSTAT)
+        {
+        }
+    
+    //todo 
+    
     I2CCONbits.PEN = 1;
 }

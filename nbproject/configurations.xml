@@ -9,11 +9,11 @@
       <itemPath>config.h</itemPath>
       <itemPath>timer.h</itemPath>
       <itemPath>process_sample.h</itemPath>
-      <itemPath>I2Cdrv.h</itemPath>
       <itemPath>dma.h</itemPath>
       <itemPath>pconfig.h</itemPath>
       <itemPath>oc.h</itemPath>
       <itemPath>clkswitch.h</itemPath>
+      <itemPath>I2C.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -1282,7 +1282,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="freeze.timers" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
