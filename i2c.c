@@ -28,6 +28,15 @@ void i2cinit()
     I2C1CON = 0b1000000000000000;
 }
 
+/* void waiteeprom ()    					Unfinished, may be necessary to give other devices 
+											time to write from buffer to memory, also have to check I2C1CONbits.PEN
+{
+	while (I2C1CONbits.ACKSTAT)
+	{
+		I2C1CONbits.SEN = 1;
+	}
+}	 */
+
 void i2cwrite (uint8_t highByte, uint8_t lowByte, uint8_t data)
 {
     I2CCONbits.SEN = 1;

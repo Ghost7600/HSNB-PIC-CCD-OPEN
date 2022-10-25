@@ -3,20 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/clkswitch.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/pconfig.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/dma.h</file>
-            <file>file:/C:/Program%20Files/Microchip/MPLABX/v6.00/packs/Microchip/dsPIC33F-GP-MC_DFP/1.3.64/xc16/support/PIC24H/h/p24HJ128GP202.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/dma.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/clkswitch.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/config.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/oc.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/oc.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/process_sample.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/timer.h</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/timer.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/main.c</file>
-            <file>file:/C:/Users/lg20093/MPLABXProjects/testtttt.X/pconfig.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/clkswitch.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/pconfig.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/I2C.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/i2c.c</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/pconfig.c</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/timer.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/main.c</file>
         </group>
     </open-files>
 </project-private>

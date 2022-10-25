@@ -98,11 +98,11 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x136           0x1d1  (465)
-.text                        0x336               0x2be           0x41d  (1053)
-.dinit                       0x5f4                0x14            0x1e  (30)
-.text                        0x608                 0xc            0x12  (18)
+.text                        0x336               0x2c6           0x429  (1065)
+.dinit                       0x5fc                0x14            0x1e  (30)
+.text                        0x610                 0xc            0x12  (18)
 
-                 Total "program" memory used (bytes):          0x61e  (1566) 1%
+                 Total "program" memory used (bytes):          0x62a  (1578) 1%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -162,25 +162,24 @@ External Symbols in Program Memory (by address):
                   0x000330                  __DefaultInterrupt
                   0x000336                  _pconfig
                   0x0003e0                  _af_raspi
-                  0x000436                  _transfer_info
-                  0x00043e                  _processSamples
-                  0x0004ac                  _main
-                  0x0004e6                  _set_clkswitch
-                  0x00053c                  _set_outcomp
-                  0x00057a                  _i2cinit
-                  0x000588                  _i2cwrite
-                  0x0005a6                  _set_timer
-                  0x0005ce                  _set_dma
-                  0x000608                  _ConfigureOscillator
-                  0x00060e                  _InitApp
+                  0x000436                  _processSamples
+                  0x0004a4                  _main
+                  0x0004de                  _set_clkswitch
+                  0x000534                  _set_outcomp
+                  0x000572                  _i2cinit
+                  0x000580                  _i2cwrite
+                  0x0005ae                  _set_timer
+                  0x0005d6                  _set_dma
+                  0x000610                  _ConfigureOscillator
+                  0x000616                  _InitApp
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000608                  _ConfigureOscillator
-                  0x00060e                  _InitApp
+                  0x000610                  _ConfigureOscillator
+                  0x000616                  _InitApp
                   0x0002d0                  __ADC1Interrupt
                   0x000306                  __AddressError
                   0x00031e                  __AltAddressError
@@ -200,16 +199,15 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
                   0x0003e0                  _af_raspi
-                  0x00057a                  _i2cinit
-                  0x000588                  _i2cwrite
-                  0x0004ac                  _main
+                  0x000572                  _i2cinit
+                  0x000580                  _i2cwrite
+                  0x0004a4                  _main
                   0x000336                  _pconfig
-                  0x00043e                  _processSamples
-                  0x0004e6                  _set_clkswitch
-                  0x0005ce                  _set_dma
-                  0x00053c                  _set_outcomp
-                  0x0005a6                  _set_timer
-                  0x000436                  _transfer_info
+                  0x000436                  _processSamples
+                  0x0004de                  _set_clkswitch
+                  0x0005d6                  _set_dma
+                  0x000534                  _set_outcomp
+                  0x0005ae                  _set_timer
 
 Memory Configuration
 
@@ -317,17 +315,17 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS@¨
+ __FBS.sec        0xf80000          0x2 /CW/_FBS‡U
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSSÄÏ
+ __FSS.sec        0xf80002          0x2 /CW/_FSSe
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSê˚
+ __FGS.sec        0xf80004          0x2 /CW/_FGSpù…
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -360,20 +358,20 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x44a9
+.debug_info       0x000000       0x45d6
  *(.debug_info)
  .debug_info      0x000000        0x111 build/XC16_24FJ256GA110/production/configuration_bits.o
  .debug_info      0x000111        0x109 build/XC16_24FJ256GA110/production/interrupts.o
- .debug_info      0x00021a        0x69a build/XC16_24FJ256GA110/production/main.o
- .debug_info      0x0008b4        0x128 build/XC16_24FJ256GA110/production/system.o
- .debug_info      0x0009dc        0x2fe build/XC16_24FJ256GA110/production/traps.o
- .debug_info      0x000cda        0x11a build/XC16_24FJ256GA110/production/user.o
- .debug_info      0x000df4        0x73b build/XC16_24FJ256GA110/production/timer.o
- .debug_info      0x00152f        0x601 build/XC16_24FJ256GA110/production/dma.o
- .debug_info      0x001b30       0x1ab9 build/XC16_24FJ256GA110/production/pconfig.o
- .debug_info      0x0035e9        0x70d build/XC16_24FJ256GA110/production/oc.o
- .debug_info      0x003cf6        0x2de build/XC16_24FJ256GA110/production/clkswitch.o
- .debug_info      0x003fd4        0x4d5 build/XC16_24FJ256GA110/production/i2c.o
+ .debug_info      0x00021a        0x65d build/XC16_24FJ256GA110/production/main.o
+ .debug_info      0x000877        0x128 build/XC16_24FJ256GA110/production/system.o
+ .debug_info      0x00099f        0x2fe build/XC16_24FJ256GA110/production/traps.o
+ .debug_info      0x000c9d        0x11a build/XC16_24FJ256GA110/production/user.o
+ .debug_info      0x000db7        0x73b build/XC16_24FJ256GA110/production/timer.o
+ .debug_info      0x0014f2        0x601 build/XC16_24FJ256GA110/production/dma.o
+ .debug_info      0x001af3       0x1ab9 build/XC16_24FJ256GA110/production/pconfig.o
+ .debug_info      0x0035ac        0x70d build/XC16_24FJ256GA110/production/oc.o
+ .debug_info      0x003cb9        0x2de build/XC16_24FJ256GA110/production/clkswitch.o
+ .debug_info      0x003f97        0x63f build/XC16_24FJ256GA110/production/i2c.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x870
@@ -391,35 +389,35 @@ __FUID3
  .debug_abbrev    0x0006fd         0xb4 build/XC16_24FJ256GA110/production/clkswitch.o
  .debug_abbrev    0x0007b1         0xbf build/XC16_24FJ256GA110/production/i2c.o
 
-.debug_line       0x000000        0x9cf
+.debug_line       0x000000        0x9c3
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_24FJ256GA110/production/configuration_bits.o
  .debug_line      0x00001a         0x1a build/XC16_24FJ256GA110/production/interrupts.o
- .debug_line      0x000034        0x181 build/XC16_24FJ256GA110/production/main.o
- .debug_line      0x0001b5         0x38 build/XC16_24FJ256GA110/production/system.o
- .debug_line      0x0001ed        0x121 build/XC16_24FJ256GA110/production/traps.o
- .debug_line      0x00030e         0x34 build/XC16_24FJ256GA110/production/user.o
- .debug_line      0x000342        0x111 build/XC16_24FJ256GA110/production/timer.o
- .debug_line      0x000453        0x10b build/XC16_24FJ256GA110/production/dma.o
- .debug_line      0x00055e        0x148 build/XC16_24FJ256GA110/production/pconfig.o
- .debug_line      0x0006a6        0x10c build/XC16_24FJ256GA110/production/oc.o
- .debug_line      0x0007b2        0x112 build/XC16_24FJ256GA110/production/clkswitch.o
- .debug_line      0x0008c4        0x10b build/XC16_24FJ256GA110/production/i2c.o
+ .debug_line      0x000034        0x171 build/XC16_24FJ256GA110/production/main.o
+ .debug_line      0x0001a5         0x38 build/XC16_24FJ256GA110/production/system.o
+ .debug_line      0x0001dd        0x121 build/XC16_24FJ256GA110/production/traps.o
+ .debug_line      0x0002fe         0x34 build/XC16_24FJ256GA110/production/user.o
+ .debug_line      0x000332        0x111 build/XC16_24FJ256GA110/production/timer.o
+ .debug_line      0x000443        0x10b build/XC16_24FJ256GA110/production/dma.o
+ .debug_line      0x00054e        0x148 build/XC16_24FJ256GA110/production/pconfig.o
+ .debug_line      0x000696        0x10c build/XC16_24FJ256GA110/production/oc.o
+ .debug_line      0x0007a2        0x112 build/XC16_24FJ256GA110/production/clkswitch.o
+ .debug_line      0x0008b4        0x10f build/XC16_24FJ256GA110/production/i2c.o
 
-.debug_frame      0x000000        0x34a
+.debug_frame      0x000000        0x330
  *(.debug_frame)
- .debug_frame     0x000000         0xa8 build/XC16_24FJ256GA110/production/main.o
- .debug_frame     0x0000a8         0x2e build/XC16_24FJ256GA110/production/system.o
- .debug_frame     0x0000d6         0xfe build/XC16_24FJ256GA110/production/traps.o
- .debug_frame     0x0001d4         0x2e build/XC16_24FJ256GA110/production/user.o
- .debug_frame     0x000202         0x2e build/XC16_24FJ256GA110/production/timer.o
- .debug_frame     0x000230         0x2e build/XC16_24FJ256GA110/production/dma.o
- .debug_frame     0x00025e         0x48 build/XC16_24FJ256GA110/production/pconfig.o
- .debug_frame     0x0002a6         0x2e build/XC16_24FJ256GA110/production/oc.o
- .debug_frame     0x0002d4         0x2e build/XC16_24FJ256GA110/production/clkswitch.o
- .debug_frame     0x000302         0x48 build/XC16_24FJ256GA110/production/i2c.o
+ .debug_frame     0x000000         0x8e build/XC16_24FJ256GA110/production/main.o
+ .debug_frame     0x00008e         0x2e build/XC16_24FJ256GA110/production/system.o
+ .debug_frame     0x0000bc         0xfe build/XC16_24FJ256GA110/production/traps.o
+ .debug_frame     0x0001ba         0x2e build/XC16_24FJ256GA110/production/user.o
+ .debug_frame     0x0001e8         0x2e build/XC16_24FJ256GA110/production/timer.o
+ .debug_frame     0x000216         0x2e build/XC16_24FJ256GA110/production/dma.o
+ .debug_frame     0x000244         0x48 build/XC16_24FJ256GA110/production/pconfig.o
+ .debug_frame     0x00028c         0x2e build/XC16_24FJ256GA110/production/oc.o
+ .debug_frame     0x0002ba         0x2e build/XC16_24FJ256GA110/production/clkswitch.o
+ .debug_frame     0x0002e8         0x48 build/XC16_24FJ256GA110/production/i2c.o
 
-.debug_str        0x000000        0x18a
+.debug_str        0x000000        0x197
  *(.debug_str)
  .debug_str       0x000000         0x20 build/XC16_24FJ256GA110/production/main.o
  .debug_str       0x000020          0xc build/XC16_24FJ256GA110/production/traps.o
@@ -428,7 +426,7 @@ __FUID3
  .debug_str       0x000078         0xca build/XC16_24FJ256GA110/production/pconfig.o
  .debug_str       0x000142         0x26 build/XC16_24FJ256GA110/production/oc.o
  .debug_str       0x000168          0xb build/XC16_24FJ256GA110/production/clkswitch.o
- .debug_str       0x000173         0x17 build/XC16_24FJ256GA110/production/i2c.o
+ .debug_str       0x000173         0x24 build/XC16_24FJ256GA110/production/i2c.o
 
 .debug_loc
  *(.debug_loc)
@@ -437,28 +435,28 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x280
+                  0x000000        0x26e
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x96 build/XC16_24FJ256GA110/production/main.o
+                  0x000000         0x84 build/XC16_24FJ256GA110/production/main.o
  .debug_pubnames
-                  0x000096         0x2a build/XC16_24FJ256GA110/production/system.o
+                  0x000084         0x2a build/XC16_24FJ256GA110/production/system.o
  .debug_pubnames
-                  0x0000c0         0xbe build/XC16_24FJ256GA110/production/traps.o
+                  0x0000ae         0xbe build/XC16_24FJ256GA110/production/traps.o
  .debug_pubnames
-                  0x00017e         0x1e build/XC16_24FJ256GA110/production/user.o
+                  0x00016c         0x1e build/XC16_24FJ256GA110/production/user.o
  .debug_pubnames
-                  0x00019c         0x20 build/XC16_24FJ256GA110/production/timer.o
+                  0x00018a         0x20 build/XC16_24FJ256GA110/production/timer.o
  .debug_pubnames
-                  0x0001bc         0x1e build/XC16_24FJ256GA110/production/dma.o
+                  0x0001aa         0x1e build/XC16_24FJ256GA110/production/dma.o
  .debug_pubnames
-                  0x0001da         0x35 build/XC16_24FJ256GA110/production/pconfig.o
+                  0x0001c8         0x35 build/XC16_24FJ256GA110/production/pconfig.o
  .debug_pubnames
-                  0x00020f         0x22 build/XC16_24FJ256GA110/production/oc.o
+                  0x0001fd         0x22 build/XC16_24FJ256GA110/production/oc.o
  .debug_pubnames
-                  0x000231         0x24 build/XC16_24FJ256GA110/production/clkswitch.o
+                  0x00021f         0x24 build/XC16_24FJ256GA110/production/clkswitch.o
  .debug_pubnames
-                  0x000255         0x2b build/XC16_24FJ256GA110/production/i2c.o
+                  0x000243         0x2b build/XC16_24FJ256GA110/production/i2c.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1153,13 +1151,13 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/XC16_24FJ256GA110/production/HSNB-Alignment-PIC-CCD.production.elf elf32-pic30)
-LOAD /CW/_FGSê˚
-LOAD /CW/_FSSÄÏ
-LOAD /CW/_FBS@¨
+LOAD /CW/_FGSpù…
+LOAD /CW/_FSSe
+LOAD /CW/_FBS‡U
 LOAD data_init
 
 .debug_pubtypes
-                  0x0000f0        0x58d
+                  0x0000f0        0x5b2
  .debug_pubtypes
                   0x0000f0         0x12 build/XC16_24FJ256GA110/production/configuration_bits.o
  .debug_pubtypes
@@ -1183,38 +1181,38 @@ LOAD data_init
  .debug_pubtypes
                   0x0005ce         0x40 build/XC16_24FJ256GA110/production/clkswitch.o
  .debug_pubtypes
-                  0x00060e         0x6f build/XC16_24FJ256GA110/production/i2c.o
+                  0x00060e         0x94 build/XC16_24FJ256GA110/production/i2c.o
 
 __c30_signature
-                  0x00067d         0x54
+                  0x0006a2         0x54
  __c30_signature
-                  0x00067d          0x6 build/XC16_24FJ256GA110/production/configuration_bits.o
+                  0x0006a2          0x6 build/XC16_24FJ256GA110/production/configuration_bits.o
  __c30_signature
-                  0x000683          0x6 build/XC16_24FJ256GA110/production/interrupts.o
+                  0x0006a8          0x6 build/XC16_24FJ256GA110/production/interrupts.o
  __c30_signature
-                  0x000689          0x6 build/XC16_24FJ256GA110/production/main.o
+                  0x0006ae          0x6 build/XC16_24FJ256GA110/production/main.o
  __c30_signature
-                  0x00068f          0x6 build/XC16_24FJ256GA110/production/system.o
+                  0x0006b4          0x6 build/XC16_24FJ256GA110/production/system.o
  __c30_signature
-                  0x000695          0x6 build/XC16_24FJ256GA110/production/traps.o
+                  0x0006ba          0x6 build/XC16_24FJ256GA110/production/traps.o
  __c30_signature
-                  0x00069b          0x6 build/XC16_24FJ256GA110/production/user.o
+                  0x0006c0          0x6 build/XC16_24FJ256GA110/production/user.o
  __c30_signature
-                  0x0006a1          0x6 build/XC16_24FJ256GA110/production/timer.o
+                  0x0006c6          0x6 build/XC16_24FJ256GA110/production/timer.o
  __c30_signature
-                  0x0006a7          0x6 build/XC16_24FJ256GA110/production/dma.o
+                  0x0006cc          0x6 build/XC16_24FJ256GA110/production/dma.o
  __c30_signature
-                  0x0006ad          0x6 build/XC16_24FJ256GA110/production/pconfig.o
+                  0x0006d2          0x6 build/XC16_24FJ256GA110/production/pconfig.o
  __c30_signature
-                  0x0006b3          0x6 build/XC16_24FJ256GA110/production/oc.o
+                  0x0006d8          0x6 build/XC16_24FJ256GA110/production/oc.o
  __c30_signature
-                  0x0006b9          0x6 build/XC16_24FJ256GA110/production/clkswitch.o
+                  0x0006de          0x6 build/XC16_24FJ256GA110/production/clkswitch.o
  __c30_signature
-                  0x0006bf          0x6 build/XC16_24FJ256GA110/production/i2c.o
+                  0x0006e4          0x6 build/XC16_24FJ256GA110/production/i2c.o
  __c30_signature
-                  0x0006c5          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
+                  0x0006ea          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0006cb          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
+                  0x0006f0          0x6 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
 
 .nbss               0x0800          0x8
  .nbss              0x0800          0x6 build/XC16_24FJ256GA110/production/main.o
@@ -1297,31 +1295,30 @@ __c30_signature
  .aivt._AltMathError
                   0x00010c          0x2 build/XC16_24FJ256GA110/production/traps.o
 
-.text             0x000336        0x2be
+.text             0x000336        0x2c6
  .text            0x000336        0x100 build/XC16_24FJ256GA110/production/pconfig.o
                   0x000336                  _pconfig
                   0x0003e0                  _af_raspi
- .text            0x000436         0xb0 build/XC16_24FJ256GA110/production/main.o
-                  0x000436                  _transfer_info
-                  0x00043e                  _processSamples
-                  0x0004ac                  _main
- .text            0x0004e6         0x56 build/XC16_24FJ256GA110/production/clkswitch.o
-                  0x0004e6                  _set_clkswitch
- .text            0x00053c         0x3e build/XC16_24FJ256GA110/production/oc.o
-                  0x00053c                  _set_outcomp
- .text            0x00057a         0x2c build/XC16_24FJ256GA110/production/i2c.o
-                  0x00057a                  _i2cinit
-                  0x000588                  _i2cwrite
- .text            0x0005a6         0x28 build/XC16_24FJ256GA110/production/timer.o
-                  0x0005a6                  _set_timer
- .text            0x0005ce         0x26 build/XC16_24FJ256GA110/production/dma.o
-                  0x0005ce                  _set_dma
+ .text            0x000436         0xa8 build/XC16_24FJ256GA110/production/main.o
+                  0x000436                  _processSamples
+                  0x0004a4                  _main
+ .text            0x0004de         0x56 build/XC16_24FJ256GA110/production/clkswitch.o
+                  0x0004de                  _set_clkswitch
+ .text            0x000534         0x3e build/XC16_24FJ256GA110/production/oc.o
+                  0x000534                  _set_outcomp
+ .text            0x000572         0x3c build/XC16_24FJ256GA110/production/i2c.o
+                  0x000572                  _i2cinit
+                  0x000580                  _i2cwrite
+ .text            0x0005ae         0x28 build/XC16_24FJ256GA110/production/timer.o
+                  0x0005ae                  _set_timer
+ .text            0x0005d6         0x26 build/XC16_24FJ256GA110/production/dma.o
+                  0x0005d6                  _set_dma
 
-.dinit            0x0005f4         0x14
- .dinit           0x0005f4         0x14 data_init
+.dinit            0x0005fc         0x14
+ .dinit           0x0005fc         0x14 data_init
 
-.text             0x000608          0xc
- .text            0x000608          0x6 build/XC16_24FJ256GA110/production/system.o
-                  0x000608                  _ConfigureOscillator
- .text            0x00060e          0x6 build/XC16_24FJ256GA110/production/user.o
-                  0x00060e                  _InitApp
+.text             0x000610          0xc
+ .text            0x000610          0x6 build/XC16_24FJ256GA110/production/system.o
+                  0x000610                  _ConfigureOscillator
+ .text            0x000616          0x6 build/XC16_24FJ256GA110/production/user.o
+                  0x000616                  _InitApp

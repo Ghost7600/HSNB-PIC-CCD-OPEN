@@ -1,5 +1,5 @@
 build/XC16_24FJ256GA110/production/main.o: main.c config.h timer.h dma.h \
- oc.h clkswitch.h pconfig.h I2Cdrv.h process_sample.h
+ oc.h clkswitch.h pconfig.h i2c.h process_sample.h
 
 config.h:
 
@@ -13,6 +13,6 @@ clkswitch.h:
 
 pconfig.h:
 
-I2Cdrv.h:
+i2c.h:
 
 process_sample.h:
