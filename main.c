@@ -43,7 +43,7 @@
 //I2C SETUP END
 //PUBLIC VAR BEGIN
    volatile unsigned int buffer[NPIXEL];    //Array mit Anzahl an Pixel 
-   volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
+   extern volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
    volatile unsigned int i=0;               //Bufferindex 
    volatile unsigned int c=0;
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
@@ -105,7 +105,7 @@ while(1)
         }
        i = 0;
     IEC0bits.AD1IE = 0;
-    processSamples(buffer, I2CDataBuffer, NPIXEL);
+    processSamples(buffer,I2CDataBuffer, NPIXEL);
 //    transfer_info();
     }
     

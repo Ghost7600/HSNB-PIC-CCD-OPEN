@@ -20,22 +20,33 @@
 extern "C" {
 #endif
 
+    
   
 
-    extern void processSamples(volatile unsigned int inputbuffer[2547], volatile unsigned char outputbuffer[2547][2], unsigned long pixelzahl)
-    {
-         volatile unsigned int inputbufferadress;
-        inputbufferadress =  &inputbuffer;  //Eingangsbufferadresse: 0x0856
-        for (int highbyte = 0; highbyte<pixelzahl; highbyte++)
-        {
-           outputbuffer[highbyte][2]= (0x00FF && inputbuffer[highbyte]); //lowbyte extrahieren 
-           outputbuffer[highbyte][1]= (0xFF00 && inputbuffer[highbyte])>>8;   
-        }
-        
-        
-        return;
-    }
+//    extern void processSamples(volatile unsigned int inputbuffer[2547], volatile unsigned char outputbuffer[2547][2], unsigned long pixelzahl)
+//    {
+//        volatile unsigned int *inputbufferadress;
+//        inputbufferadress =  &inputbuffer;  //Eingangsbufferadresse: 0x0856
+//        for (int highbyte = 0; highbyte<pixelzahl; highbyte++)
+//        {
+//           outputbuffer[highbyte][2]= (0x00FF && inputbuffer[highbyte]); //lowbyte extrahieren 
+//           outputbuffer[highbyte][1]= (0xFF00 && inputbuffer[highbyte])>>8;   
+//        }
+//        
+//        
+//        return;
+//    }
 
+    void processSamples (volatile unsigned int *1dvec[2547],volatile unsigned char *2dvec[2547][2], unsigned long noelements )
+    {
+        for (int n=0; n<noelements; n++)
+        {
+         *2dvec[n][0]=(0x00FF && *1dvec[n]);
+         *2dvec[n][1]=(0xFF00 && *1dvec[n]);         
+        }
+    }
+    
+    
 #ifdef	__cplusplus
 }
 #endif
