@@ -315,17 +315,19 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS‡U
+ __FBS.sec        0xf80000          0x2 /CW/_FBS–E
+
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSSe
+ __FSS.sec        0xf80002          0x2 /CW/_FSS∞%
+
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGSpù…
+ __FGS.sec        0xf80004          0x2 /CW/_FGSêΩ≈
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -1151,9 +1153,11 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/XC16_24FJ256GA110/production/HSNB-Alignment-PIC-CCD.production.elf elf32-pic30)
-LOAD /CW/_FGSpù…
-LOAD /CW/_FSSe
-LOAD /CW/_FBS‡U
+LOAD /CW/_FGSêΩ≈
+LOAD /CW/_FSS∞%
+
+LOAD /CW/_FBS–E
+
 LOAD data_init
 
 .debug_pubtypes

@@ -18,7 +18,8 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-void i2init (void);
+void i2initm (void);
+void i2inits (void);
 
 void i2cwrite (void);
 

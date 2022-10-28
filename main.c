@@ -76,6 +76,8 @@ int main(void) {
     set_outcomp();
         
     set_clkswitch();
+    
+    i2cinits();
         
        
  /*MAIN PROGRAM MAIN

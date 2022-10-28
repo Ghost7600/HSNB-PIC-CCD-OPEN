@@ -22,10 +22,27 @@
 #define FALSE 0
 
 
-void i2cinit()
+void i2cinitm()
 {
-    I2C1BRG = I2C_BRG;
+    //I2C1BRG = I2C_BRG;
     I2C1CON = 0b1000000000000000;
+    
+}
+
+void i2cinits()
+{
+    
+    // CONTROL REGISTER
+    I2C1BRG = I2C_BRG;
+    //I2C1CON = 0b1000000000000000;   //enable the i2c and start the register mostly blank
+    I2C1CONbits.GCEN = 1;            //Enable interrupt calls for I2C
+    I2C1CONbits.STREN = 1;           //Enable software clock strechting
+    I2C1CONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
+    I2C1CONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, ONLY REQUIRED FOR 400KHZ
+    I2CTRN = 0;
+    
+    
+    // STATUS REGISTER   
 }
 
 /* void waiteeprom ()    					Unfinished, may be necessary to give other devices 
@@ -37,10 +54,8 @@ void i2cinit()
 	}
 }	 */
 
-void i2cwrite (uint8_t highByte, uint8_t lowByte, uint8_t data)
-{
-    I2CCONbits.SEN = 1;
-    
+void i2send10bit (int data)
+{    
     while(I2C1CONbits.SEN)
     {
         

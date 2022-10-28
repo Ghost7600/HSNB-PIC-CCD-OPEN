@@ -1298,6 +1298,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-157ff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/Work/HSNB-Alignment-PIC-CCD/debug/XC16_24FJ256GA110/testtttt_ptg"/>
         <property key="programmerToGoImageName" value="testtttt_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
