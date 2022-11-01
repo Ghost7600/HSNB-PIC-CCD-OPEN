@@ -18,10 +18,14 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-void i2initm (void);
-void i2inits (void);
+void i2cinitm (void);
+void i2cinits (void);
 
 void i2cwrite (void);
+void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas);
+void i2csend (char data);
+
+
 
 /**
     Setup and configure Direct Memory Access to declutter main

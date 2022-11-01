@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/clkswitch.h</file>
-            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/pconfig.h</file>
-            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/I2C.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/i2c.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/process_sample.h</file>
             <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/i2c.c</file>
-            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/pconfig.c</file>
-            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/timer.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/nbproject/Makefile-impl.mk</file>
             <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/main.c</file>
         </group>
     </open-files>

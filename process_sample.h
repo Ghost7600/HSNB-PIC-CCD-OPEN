@@ -24,7 +24,7 @@ extern "C" {
 
     extern void processSamples(volatile unsigned int inputbuffer[2547], volatile unsigned char outputbuffer[2547][2], unsigned long pixelzahl)
     {
-         volatile unsigned int inputbufferadress;
+        volatile unsigned int inputbufferadress;
         inputbufferadress =  &inputbuffer;  //Eingangsbufferadresse: 0x0856
         for (int highbyte = 0; highbyte<pixelzahl; highbyte++)
         {

@@ -26,6 +26,7 @@
 #define T1 5                          //Zyklenzahl für 5000ns   12
 #define T2 1                           //Zyklenzahl für 500ns   2   
 #define T3 4                           //Zyklenzahl für 1000ns  2
+typedef struct byteinfo info;
 /*DEFINE END*/
 
 /*PRAGMAS BEGIN*/
@@ -46,6 +47,16 @@
    volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
    volatile unsigned int i=0;               //Bufferindex 
    volatile unsigned int c=0;
+   
+   
+    struct byteinfo{
+    int hl;     /*!< Indicates if it's going to send 1 high or 0 low part. */
+    int byte;      /*!< what byte it's going to send */
+    int retorno;    /*!<Function return, used for keeping track of things. */
+    int index; /*!< Pixel index */
+};
+   
+   
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
  //  int BufferB[NPIXEL] __attribute__((space(dma)));
 //PUBLIC VAR END
@@ -107,7 +118,7 @@ while(1)
         }
        i = 0;
     IEC0bits.AD1IE = 0;
-    processSamples(buffer, I2CDataBuffer, NPIXEL);
+//    processSamples(buffer, I2CDataBuffer, NPIXEL);
 //    transfer_info();
     }
     
