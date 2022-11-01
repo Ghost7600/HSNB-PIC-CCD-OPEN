@@ -10,6 +10,7 @@
 #ifndef I2C_H
 #define	I2C_H
 
+
 // include processor files - each processor file is guarded.
 
 #include <xc.h>   
@@ -18,12 +19,16 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
+typedef struct byteinfo info;
+
 void i2cinitm (void);
 void i2cinits (void);
 
 void i2cwrite (void);
 void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas);
 void i2csend (char data);
+
+
 
 
 

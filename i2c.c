@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <p24Hxxxx.h>
+#include "i2c.h"
 
 #define FOSC 8000000 //cystal oscilator frequency
 #define FCYY FOSC /2
@@ -20,6 +21,14 @@
 
 #define TRUE 1
 #define FALSE 0
+
+struct byteinfo{
+    int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
+    int byte; /*!< what byte it's going to send */
+    int retorno; /*!<Function return, used for keeping track of things. */
+    int index; /*!< Pixel index */
+};
+
 
 
 void i2cinitm()
@@ -42,44 +51,35 @@ void i2cinits()
     I2C1CONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0;                      //Clear Transmission Register
     I2C1ADD = 0b01;
-    
-    /*Initializing info struct*/
-    
-    info ->byte =0;
-    info ->hl =0;
-    info ->index=0;
-    info ->retorno =0;
-    
+        
     // STATUS REGISTER   
 }
 
+int gethl (info *datas)
+{
+    return datas ->hl;
+
+}
 
 
 void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas)
 {   
     I2C1CONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
-    if(datas->hl ==0){
+    if(datas->hl == 0){
         i2csend(inputbuffer[datas->byte] && 0x00FF);
-        datas.hl = 1;
+        datas->hl = 1;
     }
     
     if (datas->hl == 1){
-        i2csend(inputbuffer[datas->byte] && 0xFF00);  
-        datas.hl = 1;
+        i2csend((inputbuffer[datas->byte] && 0xFF00)>> 8);  
+        datas->hl = 1;
     }
-    
-    
-    
-    
+       
 //    char lowbyte,highbyte =0x0;
 //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
 //    highbyte = (0xFF00 && data) >> 8;
-    
-
-    
-    
-
+     I2C1CONbits.SCLREL = 0; // RELEASE CLOCK
 }
 
 void i2csend (char data){
@@ -92,5 +92,4 @@ void i2csend (char data){
         
        I2C1TRN = data; // Transfer register, write data here.       
     }
-
 }
