@@ -19,13 +19,22 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
+#define NPIXEL 2000
+
+    struct byteinfo{
+    int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
+    int byte; /*!< what byte it's going to send */
+    int retorno; /*!<Function return, used for keeping track of things. */
+    int index; /*!< Pixel index */
+    };
+
 typedef struct byteinfo info;
 
 void i2cinitm (void);
-void i2cinits (void);
+info* i2cinits (void);
 
 void i2cwrite (void);
-void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas);
+void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],info *datas);
 void i2csend (char data);
 
 
@@ -48,5 +57,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	I2C_H
+#endif	//I2C_H
 

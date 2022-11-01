@@ -36,5 +36,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	XC_CLKSWITCH_H
+#endif	//XC_CLKSWITCH_H
 

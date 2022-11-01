@@ -22,15 +22,6 @@
 #define TRUE 1
 #define FALSE 0
 
-struct byteinfo{
-    int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
-    int byte; /*!< what byte it's going to send */
-    int retorno; /*!<Function return, used for keeping track of things. */
-    int index; /*!< Pixel index */
-};
-
-
-
 void i2cinitm()
 {
     //I2C1BRG = I2C_BRG;
@@ -38,7 +29,7 @@ void i2cinitm()
     
 }
 
-void i2cinits()
+info* i2cinits()
 {
     
     // CONTROL REGISTER
@@ -51,18 +42,25 @@ void i2cinits()
     I2C1CONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0;                      //Clear Transmission Register
     I2C1ADD = 0b01;
-        
+    
+    info*saddress;
+    
+    saddress = malloc (sizeof(struct byteinfo));
+    
+    
+    
+    return saddress;
     // STATUS REGISTER   
 }
 
-int gethl (info *datas)
+int getindex (info *datas)
 {
-    return datas ->hl;
+    return datas ->index;
 
 }
 
 
-void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas)
+void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],info *datas)
 {   
     I2C1CONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
@@ -73,12 +71,14 @@ void i2sendread10bit (volatile unsigned int *inputbuffer[2547],info *datas)
     
     if (datas->hl == 1){
         i2csend((inputbuffer[datas->byte] && 0xFF00)>> 8);  
-        datas->hl = 1;
+        datas->hl = 0;
+        datas->index = getindex(datas) + 1;
     }
        
 //    char lowbyte,highbyte =0x0;
 //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
 //    highbyte = (0xFF00 && data) >> 8;
+    datas->byte++;
      I2C1CONbits.SCLREL = 0; // RELEASE CLOCK
 }
 

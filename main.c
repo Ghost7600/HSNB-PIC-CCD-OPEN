@@ -21,7 +21,7 @@
 
 /*INCLUDES END*/
 /*DEFINES BEGIN*/
-#define NPIXEL 2000
+//#define NPIXEL 2000                   //DEFINED IN I2C.H
 #define _XTAL_FREQ 10000000L
 #define T1 5                          //Zyklenzahl für 5000ns   12
 #define T2 1                           //Zyklenzahl für 500ns   2   
@@ -47,9 +47,9 @@
    volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
    volatile unsigned int i=0;               //Bufferindex 
    volatile unsigned int c=0;
+   volatile info *sadd;
+   unsigned int * bfrptr;
    
-   
-
    
    
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
@@ -83,7 +83,15 @@ int main(void) {
         
     set_clkswitch();
     
-    i2cinits();
+    sadd = i2cinits();
+    
+    
+    
+    struct byteinfo uno = {.byte =0 ,.retorno=1};
+    
+    struct byteinfo *ptr = &uno;
+    
+    bfrptr = &buffer;
         
        
  /*MAIN PROGRAM MAIN
@@ -147,6 +155,15 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
     IFS0bits.AD1IF=0;
     return;
 }
+
+void __attribute__((interrupt, no_auto_psv)) _I2C1Interrupt(void)
+{
+    void i2csendread10bit (bfrptr,ptr);
+    
+    
+    return;
+}
+
 
 /*void __attribute__((interrupt, no_auto_psv)) _DMA0Interrupt(void)
 {
