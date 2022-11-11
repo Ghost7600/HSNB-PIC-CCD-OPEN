@@ -19,7 +19,7 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-#define NPIXEL 2000
+#define NPIXEL 2547
 
     struct byteinfo{
     int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
@@ -34,7 +34,7 @@ void i2cinitm (void);
 info* i2cinits (void);
 
 void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],info *datas);
+void i2csendread10bit (volatile unsigned int *inputbuffer,info *datas);
 void i2csend (char data);
 
 

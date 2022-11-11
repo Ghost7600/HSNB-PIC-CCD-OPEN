@@ -44,13 +44,17 @@
 //I2C SETUP END
 //PUBLIC VAR BEGIN
    volatile unsigned int buffer[NPIXEL];    //Array mit Anzahl an Pixel 
-   volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
+   //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
    volatile unsigned int i=0;               //Bufferindex 
    volatile unsigned int c=0;
    volatile info *sadd;
-   unsigned int * bfrptr;
+   volatile unsigned int *bfrptr;
    
-   
+    struct byteinfo uno = {.byte =0 ,.retorno=1};
+    
+    struct byteinfo *ptr = &uno;
+    
+    volatile unsigned int (*bfrptr)[NPIXEL] = &buffer;
    
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
  //  int BufferB[NPIXEL] __attribute__((space(dma)));
@@ -87,11 +91,7 @@ int main(void) {
     
     
     
-    struct byteinfo uno = {.byte =0 ,.retorno=1};
-    
-    struct byteinfo *ptr = &uno;
-    
-    bfrptr = &buffer;
+   
         
        
  /*MAIN PROGRAM MAIN
@@ -156,9 +156,9 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
     return;
 }
 
-void __attribute__((interrupt, no_auto_psv)) _I2C1Interrupt(void)
+void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
-    void i2csendread10bit (bfrptr,ptr);
+      i2csendread10bit(bfrptr,ptr);
     
     
     return;

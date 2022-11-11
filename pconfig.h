@@ -12,7 +12,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define NPIXEL 2000
+//#define NPIXEL 2000
 #define _XTAL_FREQ 10000000L
 #define T1 5                          //Zyklenzahl für 5000ns   12
 #define T2 1                           //Zyklenzahl für 500ns   2   

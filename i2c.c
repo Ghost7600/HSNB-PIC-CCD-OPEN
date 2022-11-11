@@ -60,7 +60,7 @@ int getindex (info *datas)
 }
 
 
-void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],info *datas)
+void i2csendread10bit (volatile unsigned int *inputbuffer,info *datas)
 {   
     I2C1CONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
@@ -84,7 +84,7 @@ void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],info *datas)
 
 void i2csend (char data){
 
-    while (I2C1STATbits.IWCOL == 0 && I2C1STATbits.TBF==0)
+    while (I2C1STATbits.IWCOL == 0 && I2C1STATbits.TBF==0)      //No collision AND Transmit complete
     {
        
        //TRISBbits.TRISB11 = 0;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
