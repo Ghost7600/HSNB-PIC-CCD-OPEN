@@ -34,7 +34,7 @@ void i2cinitm (void);
 info* i2cinits (void);
 
 void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int *inputbuffer,info *datas);
+void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas);
 void i2csend (char data);
 
 

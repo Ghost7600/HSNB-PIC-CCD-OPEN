@@ -60,7 +60,7 @@ int getindex (info *datas)
 }
 
 
-void i2csendread10bit (volatile unsigned int *inputbuffer,info *datas)
+void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas)
 {   
     I2C1CONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
