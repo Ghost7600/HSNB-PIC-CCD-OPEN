@@ -55,6 +55,8 @@
     struct byteinfo *ptr = &uno;
     
     volatile unsigned int (*bfrptr) [NPIXEL] = &buffer;
+    
+    int counter =0;
    
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
  //  int BufferB[NPIXEL] __attribute__((space(dma)));
@@ -158,9 +160,14 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
-      i2csendread10bit(bfrptr,ptr);
+    if (counter<2){
+        counter++;
+    }  
+    else{
+    i2csendread10bit(bfrptr,ptr);
+    }
     
-    
+    I2C1CONbits.SCLREL = 0; // RELEASE CLOCK;
     return;
 }
 

@@ -80,7 +80,7 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas)
 //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
 //    highbyte = (0xFF00 && data) >> 8;
       //datas->byte++;
-     I2C1CONbits.SCLREL = 0; // RELEASE CLOCK
+
 }
 
 void i2csend (char data){
