@@ -73,12 +73,13 @@ void i2csendread10bit (volatile unsigned int *inputbuffer,info *datas)
         i2csend((inputbuffer[datas->byte] && 0xFF00)>> 8);  
         datas->hl = 0;
         datas->index = getindex(datas) + 1;
+        datas->byte++;
     }
        
 //    char lowbyte,highbyte =0x0;
 //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
 //    highbyte = (0xFF00 && data) >> 8;
-    datas->byte++;
+      //datas->byte++;
      I2C1CONbits.SCLREL = 0; // RELEASE CLOCK
 }
 
