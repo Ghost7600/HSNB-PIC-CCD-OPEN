@@ -183,7 +183,7 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void) {
     IFS1bits.SI2C1IF = 0; // clears the I2C S interrupt flag
-
+    debug =7;
     switch (i2_state) {
 
         case WAIT_FOR_ADDR:

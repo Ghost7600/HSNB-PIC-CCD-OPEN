@@ -33,6 +33,8 @@ void pconfig (void){
     /*PORT SETUP BEGIN*/
     TRISBbits.TRISB2 = 0;           //RB2 ist Output (TIM1) PHI(M)
     TRISBbits.TRISB3 = 0;           //RB3 ist Output (TIM2) ICG
+    TRISBbits.TRISB8 = 1;           //RB8 SCL1 digital Input
+    TRISBbits.TRISB9 = 1;           //RB9 SDA1 digital input
     PORTBbits.RB3 = 0;              //ICG nach INverter auf HIGH
     TRISBbits.TRISB4 = 0;           //RB4 ist Output (TIM)  SH
     PORTBbits.RB4 = 1;              //SH nach Inverter auf LOW
@@ -43,8 +45,7 @@ void pconfig (void){
     //OSC SETUP BEGIN
    CLKDIVbits.PLLPOST = 0;         //OSC Postscaler =2
    CLKDIVbits.PLLPRE = 0;          //OSC Prescaler  =2
-   // 
-    PLLFBDbits.PLLDIV = 0x1E;       //Teiler auf 32 =>40MIPS / fosc=80MHz / Fcy=40MHz
+   //     PLLFBDbits.PLLDIV = 0x1E;       //Teiler auf 32 =>40MIPS / fosc=80MHz / Fcy=40MHz
     //OSC SETUP END
     //ADC SETUP BEGIN
    	AD1PCFGL = 0xFFFF;              //AD1PCFGH/AD1PCFGL: Port Configuration Register
