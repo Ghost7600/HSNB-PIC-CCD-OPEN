@@ -120,6 +120,7 @@ while(1)
     while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
         {
         Nop();
+        
         }
        i = 0;
     IEC0bits.AD1IE = 0;
@@ -168,6 +169,7 @@ void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
     }
     
     I2C1CONbits.SCLREL = 0; // RELEASE CLOCK;
+    IFS1bits.SI2C1IF = 0;
     return;
 }
 

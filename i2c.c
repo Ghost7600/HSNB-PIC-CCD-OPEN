@@ -36,13 +36,15 @@ info* i2cinits()
     I2C1BRG = I2C_BRG;
     //I2C1CON = 0b1000000000000000;  //enable the i2c and start the register mostly blank
     I2C1CONbits.GCEN = 1;            //Enable interrupt calls for I2C
-    IEC1bits.SI2C1IE = 1;            // enable SI2C1IF interrupt SlaveI2CFlag 
     I2C1CONbits.STREN = 1;           //Enable software clock strechting
     I2C1CONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
     I2C1CONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0;                      //Clear Transmission Register
     I2C1ADD = 0b01;
-    
+    IEC1bits.SI2C1IE = 1;            // enable SI2C1IF interrupt SlaveI2CFlag
+    IFS1bits.SI2C1IF = 0;
+    IEC1bits.SI2CIE = 1;           // enable SI2C1IF interrupt SlaveI2CFlag
+    IFS1bits.SI2CIF = 0;
     info*saddress;
     
     saddress = malloc (sizeof(struct byteinfo));
