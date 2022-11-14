@@ -27,6 +27,15 @@
 #define T2 1                           //Zyklenzahl für 500ns   2   
 #define T3 4                           //Zyklenzahl für 1000ns  2
 
+
+typedef enum {
+    IDLE,
+    WAIT_FOR_ADDR,
+    WAIT_FOR_WRITE,
+    SEND_READ_DATA,
+    SEND_READ_LAST_DATA
+} STATE;
+
 /*DEFINE END*/
 
 /*PRAGMAS BEGIN*/
@@ -36,7 +45,8 @@
 
 /*SETUP BEGIN*/
 
-
+volatile STATE i2_state = WAIT_FOR_ADDR;
+volatile unsigned int idx = -1, count = 0, lastState, currentState, tmp = 0;
 
 
 //I2C SETUP BEGIN
@@ -158,17 +168,78 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
     return;
 }
 
-void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
-{
-    if (counter<2){
-        counter++;
-    }  
-    else{
-    i2csendread10bit(bfrptr,ptr);
+//void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
+//{
+//    if (counter<2){
+//        counter++;
+//    }  
+//    else{
+//    i2csendread10bit(bfrptr,ptr);
+//    }
+//    
+//    I2C1CONbits.SCLREL = 0; // RELEASE CLOCK;
+//    return;
+//}
+
+void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void) {
+    IFS1bits.SI2C1IF = 0; // clears the I2C S interrupt flag
+
+    switch (i2_state) {
+
+        case WAIT_FOR_ADDR:
+            //TRISBbits.TRISB10 = 0;              //Set tristate to digital out
+            //TRISBbits.TRISB11 = 1;              //Set tristate to digital out
+            //ClrWdt();
+            //if(I2C2STATbits.D_A == 0){
+                if (I2C1STATbits.R_W) {
+
+                    idx = -1;
+                    tmp = I2C1RCV;
+                    while(_RBF);
+                    //I2C2TRN = (temp); //get first data byte
+                    //I2C2TRN = Get_AD(++idx);
+                    I2C1CONbits.SCLREL = 1; //release clock line so MASTER can drive it
+                    while(_TBF);
+
+                    i2_state = SEND_READ_DATA; //read transaction
+                } else i2_state = WAIT_FOR_WRITE;
+            //}
+            break;
+
+
+        case WAIT_FOR_WRITE:
+
+            tmp = I2C1RCV;
+            while(_RBF);
+            idx = -1;
+            //character arrived, place in buffer
+            //TRISBbits.TRISB10 = ~TRISBbits.TRISB10; //Set tristate to digital out
+            i2_state = WAIT_FOR_ADDR;
+            break;
+
+        case SEND_READ_DATA:
+            _SWDTEN = 1;
+//            TRISBbits.TRISB11 = 0;              //Set tristate to digital out
+//            TRISBbits.TRISB10 = 1;              //Set tristate to digital out
+            i2csendread10bit(bfrptr,ptr);
+            I2C1CONbits.SCLREL = 1; //release clock line so MASTER can drive it
+            while(_TBF);
+            if(idx == 7){i2_state = WAIT_FOR_ADDR; idx = -1; _SWDTEN = 0;}
+            
+            break;
+
+        case SEND_READ_LAST_DATA:
+
+            idx = -1;
+            i2_state = WAIT_FOR_ADDR;
+            break;
+
+        default:
+            idx = -1;
+            i2_state = WAIT_FOR_ADDR;
+
     }
-    
-    I2C1CONbits.SCLREL = 0; // RELEASE CLOCK;
-    return;
+  
 }
 
 
