@@ -26,6 +26,24 @@ void i2cinitm()
 {
     //I2C1BRG = I2C_BRG;
     I2C1CON = 0b1000000000000000;
+    //I2C1CONbits.STREN = 1; // Enable clock stretching
+    
+    
+}
+
+void i2cmsend (char sadd, char data)
+{
+
+    I2C1CONbits.SEN = 1; // send star condition;
+    while (I2C1CONbits.SEN);
+    I2C1TRN = sadd; //sending address
+    if (I2C1STATbits.ACKSTAT)
+    {
+        I2C1CONbits.PEN = 1; //send stop condition
+        while (I2C1CONbits.PEN){};
+        return;
+    }
+    
     
 }
 
@@ -34,7 +52,7 @@ info* i2cinits()
     
     // CONTROL REGISTER
     I2C1BRG = I2C_BRG;
-    //I2C1CON = 0b1000000000000000;  //enable the i2c and start the register mostly blank
+    I2C1CON = 0b1000000000000000;  //enable the i2c and start the register mostly blank
     I2C1CONbits.GCEN = 1;            //Enable interrupt calls for I2C
     I2C1CONbits.STREN = 1;           //Enable software clock strechting
     I2C1CONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
