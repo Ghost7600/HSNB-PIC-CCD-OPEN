@@ -89,9 +89,14 @@ int main(void) {
         
     set_clkswitch();
     
-    sadd = i2cinits();
+    //sadd = i2cinits();
     
+    i2cinitm;
     
+    while (1)
+    {
+        i2cmsend (0x1,0xF);
+    }
     
    
         

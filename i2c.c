@@ -24,23 +24,25 @@
 
 void i2cinitm()
 {
-    //I2C1BRG = I2C_BRG;
-    I2C1CON = 0b1000000000000000;
-    //I2C1CONbits.STREN = 1; // Enable clock stretching
-    
+    I2C1BRG = I2C_BRG;
+    I2CCON = 0b1000000000000000;
+    I2CCONbits.I2CEN = 1;
+    //I2CCONbits.STREN = 1; // Enable clock stretching
+     TRISBbits.TRISB8 = 1;
+    TRISBbits.TRISB9 = 1;
     
 }
 
 void i2cmsend (char sadd, char data)
 {
 
-    I2C1CONbits.SEN = 1; // send star condition;
-    while (I2C1CONbits.SEN);
-    I2C1TRN = sadd; //sending address
-    if (I2C1STATbits.ACKSTAT)
+    I2CCONbits.SEN = 1; // send start condition;
+    while (I2CCONbits.SEN == 1);
+    I2CTRN = sadd; //sending address
+    if (I2CSTATbits.ACKSTAT)
     {
-        I2C1CONbits.PEN = 1; //send stop condition
-        while (I2C1CONbits.PEN){};
+        I2CCONbits.PEN = 1; //send stop condition
+        while (I2CCONbits.PEN){};
         return;
     }
     
@@ -49,19 +51,19 @@ void i2cmsend (char sadd, char data)
 
 info* i2cinits()
 {
-    
+   
     // CONTROL REGISTER
     I2C1BRG = I2C_BRG;
-    I2C1CON = 0b1000000000000000;  //enable the i2c and start the register mostly blank
-    I2C1CONbits.GCEN = 1;            //Enable interrupt calls for I2C
-    I2C1CONbits.STREN = 1;           //Enable software clock strechting
-    I2C1CONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
-    I2C1CONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
+    I2CCON = 0b1000000000000000;  //enable the i2c and start the register mostly blank
+    I2CCONbits.GCEN = 1;            //Enable interrupt calls for I2C
+    I2CCONbits.STREN = 1;           //Enable software clock strechting
+    I2CCONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
+    I2CCONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0;                      //Clear Transmission Register
-    I2C1ADD = 0b01;
-    IEC1bits.SI2C1IE = 1;            // enable SI2C1IF interrupt SlaveI2CFlag
-    IFS1bits.SI2C1IF = 0;
-    IEC1bits.SI2CIE = 1;           // enable SI2C1IF interrupt SlaveI2CFlag
+    I2CADD = 0b01;
+    IEC1bits.SI2CIE = 1;            // enable SI2CIF interrupt SlaveI2CFlag
+    IFS1bits.SI2CIF = 0;
+    IEC1bits.SI2CIE = 1;           // enable SI2CIF interrupt SlaveI2CFlag
     IFS1bits.SI2CIF = 0;
     info*saddress;
     
@@ -82,7 +84,7 @@ int getindex (info *datas)
 
 void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas)
 {   
-    I2C1CONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
+    I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
     if(datas->hl == 0){
         i2csend(inputbuffer[datas->byte] && 0x00FF);
@@ -105,12 +107,12 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas)
 
 void i2csend (char data){
 
-    while (I2C1STATbits.IWCOL == 0 && I2C1STATbits.TBF==0)      //No collision AND Transmit complete
+    while (I2CSTATbits.IWCOL == 0 && I2CSTATbits.TBF==0)      //No collision AND Transmit complete
     {
        
        //TRISBbits.TRISB11 = 0;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
        //TRISBbits.TRISB10 = 1;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
         
-       I2C1TRN = data; // Transfer register, write data here.       
+       I2CTRN = data; // Transfer register, write data here.       
     }
 }

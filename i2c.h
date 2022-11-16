@@ -32,7 +32,7 @@ typedef struct byteinfo info;
 
 void i2cinitm (void);
 info* i2cinits (void);
-
+void i2cmsend (char sadd, char data);
 void i2cwrite (void);
 void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas);
 void i2csend (char data);
