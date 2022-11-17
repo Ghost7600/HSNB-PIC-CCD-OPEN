@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="65">
   <projectmakefile>Makefile</projectmakefile>
-  <defaultConf>10</defaultConf>
+  <defaultConf>0</defaultConf>
   <confs>
     <conf name="XC16_24FJ256GA110" type="2">
       <platformToolSN>:=MPLABComm-USB-Microchip:=&lt;vid>04D8:=&lt;pid>9012:=&lt;rev>0100:=&lt;man>Microchip Technology Incorporated:=&lt;prod>MPLAB PICkit 4:=&lt;sn>BUR222772473:=&lt;drv>x:=&lt;xpt>b:=end</platformToolSN>
@@ -184,7 +184,7 @@
       </runprofile>
     </conf>
     <conf name="XC16_24HJ128GP202" type="2">
-      <platformToolSN>:=MPLABComm-USB-Microchip:=&lt;vid>04D8:=&lt;pid>9012:=&lt;rev>0100:=&lt;man>Microchip Technology Incorporated:=&lt;prod>MPLAB PICkit 4:=&lt;sn>BUR222772473:=&lt;drv>x:=&lt;xpt>b:=end</platformToolSN>
+      <platformToolSN></platformToolSN>
       <languageToolchainDir>C:\Program Files\Microchip\xc16\v2.00\bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>

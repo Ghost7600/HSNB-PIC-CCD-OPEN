@@ -14,7 +14,7 @@
 
 #define FOSC 8000000 //cystal oscilator frequency
 #define FCYY FOSC /2
-#define I2C_BRG 0x9
+#define I2C_BRG 0xFF
 
 #define I2C_READ 1
 #define I2C_FALSE 0
@@ -22,14 +22,15 @@
 #define TRUE 1
 #define FALSE 0
 
-void i2cinitm()
+void i2cinitm(void)
 {
     I2C1BRG = I2C_BRG;
     I2CCON = 0b1000000000000000;
     I2CCONbits.I2CEN = 1;
     //I2CCONbits.STREN = 1; // Enable clock stretching
-     TRISBbits.TRISB8 = 1;
-    TRISBbits.TRISB9 = 1;
+//    TRISBbits.TRISB8 = 1;
+//    TRISBbits.TRISB9 = 1;
+    //I2C1CONbits.DISSLW = 1;
     
 }
 
@@ -39,12 +40,14 @@ void i2cmsend (char sadd, char data)
     I2CCONbits.SEN = 1; // send start condition;
     while (I2CCONbits.SEN == 1);
     I2CTRN = sadd; //sending address
-    if (I2CSTATbits.ACKSTAT)
-    {
-        I2CCONbits.PEN = 1; //send stop condition
-        while (I2CCONbits.PEN){};
-        return;
-    }
+    while (I2C1STATbits.TBF);
+//    if (I2CSTATbits.ACKSTAT)
+//    {
+//        I2CCONbits.PEN = 1; //send stop condition
+//        while (I2CCONbits.PEN){};
+//        return;
+//    }
+    
     
     
 }

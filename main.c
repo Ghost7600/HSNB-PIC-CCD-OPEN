@@ -81,21 +81,21 @@ int main(void) {
     
     pconfig();
     
-    set_dma(); // DMA Setup
-    
-    set_timer(); // Timer Setup
-   
-    set_outcomp();
-        
-    set_clkswitch();
-    
-    //sadd = i2cinits();
+//    set_dma(); // DMA Setup
+//    
+//    set_timer(); // Timer Setup
+//   
+//    set_outcomp();
+//        
+//    set_clkswitch();
+//    
+//    sadd = i2cinits();
     
     i2cinitm();
     
     while (1)
     {
-        i2cmsend (0x1,0xF);
+        i2cmsend (0b110010,0b101);
     }
     
    
