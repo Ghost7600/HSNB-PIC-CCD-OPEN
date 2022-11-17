@@ -113,25 +113,25 @@ int main(void) {
    *
    * The transmission then takes place via I2C to the Raspi
    */
-while(1)
-    {
-    //Query I2C when to start
-   while (start_flag == 0){};          //wait for start signal from Raspi
-   
-   debug =1;
-
-   af_raspi(); // waits and setups after raspis signal
-   
-    while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
-        {
-        Nop();
-        
-        }
-       i = 0;
-    IEC0bits.AD1IE = 0;
-//    processSamples(buffer, I2CDataBuffer, NPIXEL);
-//    transfer_info();
-    }
+//while(1)
+//    {
+//    //Query I2C when to start
+//   while (start_flag == 0){};          //wait for start signal from Raspi
+//   
+//   debug =1;
+//
+//   af_raspi(); // waits and setups after raspis signal
+//   
+//    while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
+//        {
+//        Nop();
+//        
+//        }
+//       i = 0;
+//    IEC0bits.AD1IE = 0;
+////    processSamples(buffer, I2CDataBuffer, NPIXEL);
+////    transfer_info();
+//    }
     
 }
 /*MAIN END*/
