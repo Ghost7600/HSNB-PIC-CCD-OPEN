@@ -91,7 +91,7 @@ int main(void) {
     
     //sadd = i2cinits();
     
-    i2cinitm;
+    i2cinitm();
     
     while (1)
     {

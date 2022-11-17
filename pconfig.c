@@ -48,7 +48,9 @@ void pconfig (void){
     //OSC SETUP END
     //ADC SETUP BEGIN
    	AD1PCFGL = 0xFFFF;              //AD1PCFGH/AD1PCFGL: Port Configuration Register
+   
     AD1PCFGLbits.PCFG0 = 0;         // AN0 as Analog Input  
+    
     AD1CON1 = 0;                    //clear all bits
     AD1CON2 = 0;
     AD1CON3 = 0;
