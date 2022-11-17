@@ -26,6 +26,9 @@
 #define T1 5                          //Zyklenzahl für 5000ns   12
 #define T2 1                           //Zyklenzahl für 500ns   2   
 #define T3 4                           //Zyklenzahl für 1000ns  2
+#define LIS_I2C_ADDRESS             0x19
+#define LIS_ID_REG                  0x0F
+#define LIS_CNTRL_REG1              0x20
 
 /*DEFINE END*/
 
@@ -72,30 +75,37 @@
 
 //PRIVATE VAR END
 /*SETUP END*/
-
 /*MAIN BEGIN*/
 int main(void) {
-    
-    
-    int start_flag = 1;             //Start flag is set by communicating with RASPI
-    
+
+
+    int start_flag = 1; //Start flag is set by communicating with RASPI
+
     pconfig();
-    
+
     set_dma(); // DMA Setup
-    
+
     set_timer(); // Timer Setup
-   
+
     set_outcomp();
-        
+
     set_clkswitch();
-    
+
     //sadd = i2cinits();
-    
+
     i2cinitm();
-    
-    while (1)
-    {
-        i2cmsend (0x1,0xF);
+
+    while (1) {
+        //        i2cmsend (0x1,0xF);
+
+        drvI2CInit(); // Initialize the i2c module
+
+        //UART2PutString("Reading ID reg..");
+        //drvI2CReadRegisters(LIS_ID_REG, &temp, 1, LIS_I2C_ADDRESS); // Read the ID register
+        //UART2PutHex(temp);
+        //UART2PutString(".. is the ID");
+
+        drvI2CWriteByte(LIS_CNTRL_REG1, 0x00, LIS_I2C_ADDRESS); // Write some register
     }
     
    
