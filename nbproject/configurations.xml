@@ -14,6 +14,9 @@
       <itemPath>oc.h</itemPath>
       <itemPath>clkswitch.h</itemPath>
       <itemPath>i2c.h</itemPath>
+      <itemPath>GenericTypeDefs.h</itemPath>
+      <itemPath>HardwareProfile.h</itemPath>
+      <itemPath>drvI2C.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -34,6 +37,7 @@
       <itemPath>oc.c</itemPath>
       <itemPath>clkswitch.c</itemPath>
       <itemPath>i2c.c</itemPath>
+      <itemPath>I2Cdrv.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -1300,6 +1304,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-157ff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/Work/HSNB-Alignment-PIC-CCD/debug/XC16_24FJ256GA110/testtttt_ptg"/>
         <property key="programmerToGoImageName" value="testtttt_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -12333,7 +12339,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="freeze.timers" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -12349,6 +12355,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-157ff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/Work/HSNB-Alignment-PIC-CCD/debug/XC16_24HJ128GP202/XC16_24HJ128GP202_ptg"/>
         <property key="programmerToGoImageName" value="XC16_24HJ128GP202_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
