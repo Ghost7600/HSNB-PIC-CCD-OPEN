@@ -96,7 +96,7 @@ T2CONbits.TON = 1;                  // Start Timer
     
      Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); //Nop(); Nop(); Nop(); Nop();
      
-    debug = 2;
+    //debug = 2;
    
     PORTBbits.RB4 = 0;                  //SH goes HIGH 
     //int SH = 0; 

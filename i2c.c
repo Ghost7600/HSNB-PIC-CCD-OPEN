@@ -14,7 +14,7 @@
 
 #define FOSC 8000000 //cystal oscilator frequency
 #define FCYY FOSC /2
-#define I2C_BRG 0xFF
+#define I2C_BRG 0x9
 
 #define I2C_READ 1
 #define I2C_FALSE 0
@@ -47,7 +47,7 @@ void i2cmsend (char sadd, char data)
 //        while (I2CCONbits.PEN){};
 //        return;
 //    }
-    
+    I2CCONbits.PEN = 1; //send stop condition
     
     
 }
@@ -63,11 +63,10 @@ info* i2cinits()
     I2CCONbits.SCLREL = 1;          //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
     I2CCONbits.DISSLW = 1;          //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0;                      //Clear Transmission Register
-    I2CADD = 0b01;
+    I2CADD = 8;
     IEC1bits.SI2CIE = 1;            // enable SI2CIF interrupt SlaveI2CFlag
     IFS1bits.SI2CIF = 0;
-    IEC1bits.SI2CIE = 1;           // enable SI2CIF interrupt SlaveI2CFlag
-    IFS1bits.SI2CIF = 0;
+    
     info*saddress;
     
     saddress = malloc (sizeof(struct byteinfo));
@@ -116,6 +115,6 @@ void i2csend (char data){
        //TRISBbits.TRISB11 = 0;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
        //TRISBbits.TRISB10 = 1;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
         
-       I2CTRN = data; // Transfer register, write data here.       
+       I2CTRN = 0b11001010; // Transfer register, write data here.       
     }
 }

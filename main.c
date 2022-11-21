@@ -69,7 +69,7 @@
 //PUBLIC FUNCTION END
 
 //PRIVATE VAR BEGIN
-
+int start_flag = 1;             //Start flag is set by communicating with RASPI
 //PRIVATE VAR END
 /*SETUP END*/
 
@@ -77,7 +77,7 @@
 int main(void) {
     
     
-    int start_flag = 1;             //Start flag is set by communicating with RASPI
+    
     
     pconfig();
     
@@ -89,14 +89,14 @@ int main(void) {
 //        
 //    set_clkswitch();
 //    
-//    sadd = i2cinits();
+    sadd = i2cinits();
     
-    i2cinitm();
-    
-    while (1)
-    {
-        i2cmsend (0b110010,0b101);
-    }
+//    i2cinitm();
+//    
+//    while (1)
+//    {
+//        i2cmsend (0b110010,0b101);
+//    }
     
    
         
@@ -116,7 +116,7 @@ int main(void) {
 while(1)
     {
     //Query I2C when to start
-   while (start_flag == 0){};          //wait for start signal from Raspi
+   //while (start_flag == 0){};          //wait for start signal from Raspi
    
    debug =1;
 
@@ -166,14 +166,14 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
-    if (counter<2){
-        counter++;
-    }  
-    else{
-    i2csendread10bit(bfrptr,ptr);
-    }
+    I2CCONbits.SCLREL = 0;
+    start_flag = I2CRCV;
+    debug++;
     
-    I2C1CONbits.SCLREL = 0; // RELEASE CLOCK;
+    i2csendread10bit(bfrptr,ptr);
+    
+
+    I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0;
     return;
 }
