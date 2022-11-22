@@ -25,7 +25,7 @@
 
     typedef struct byteinfo{ 
     int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
-    int byte; /*!< what byte it's going to send */
+    int byte; /*!< hold the full value of the byte, should not be needed but keeping here just in case*/
     int retorno; /*!<Function return, used for keeping track of things. */
     int index; /*!< Pixel index */
     int indexh; /*!< Pixel index low byte*/

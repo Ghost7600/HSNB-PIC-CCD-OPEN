@@ -113,16 +113,19 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *da
 {   
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
+    
+    //int index = mergeindex(datas); commented to allow index incrementation
+    int index = getindex(datas);
+    
     if(datas->hl == 0){
-        i2csend(inputbuffer[datas->byte] && 0x00FF);
+        i2csend(inputbuffer[index] && 0x00FF);
         datas->hl = 1;
     }
     
     if (datas->hl == 1){
-        i2csend((inputbuffer[datas->byte] && 0xFF00)>> 8);  
+        i2csend((inputbuffer[index] && 0xFF00)>> 8);  
         datas->hl = 0;
         datas->index = getindex(datas) + 1;
-        datas->byte++;
     }
        
 //    char lowbyte,highbyte =0x0;
@@ -146,15 +149,17 @@ void i2csend (char data){
 
 void storeindex (byteinfo* data, int order)
 {
-    switch (getorder(data)) {
-                    case LOWINDEX:
+    switch (getorder(data)) {       //reads order stored in struct and decides if its writing low or high byte
+                    case LOWINDEX:     
                         data->indexl = order;
                         data -> order = 0;
+                        data ->index = mergeindex(data);
                         break;
 
                     case HIGHINDEX:
                         data->indexh = order;
                         data -> order = 0;
+                        data ->index = mergeindex(data);
                         break;
                 }
 }
@@ -164,20 +169,24 @@ void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL])
     if (I2CSTATbits.R_W == 0) //case master is trying to write
     {
         int order = I2CRCV; // reads buffer to clear register and store data
-        switch (order) {
-            case LOWINDEX:
-                data->order = order;
+        switch (order)      //switch case for knowing if its writing 
+        {
+            case LOWINDEX:          //here it's telling us that it is going to store a lowbyte for the index
+                data->order = order;//here we are passing the instruction to the structure
                 break;
-            case HIGHINDEX:
-                data->order = order;
+            case HIGHINDEX:         //here it's telling us that it is going to store a highbyte for the index
+                data->order = order;//here we are passing the instruction to the structure
                 break;
                 
-            default: storeindex (data,order);
-                
+            default: storeindex (data,order);  //stores value recieved by the arduino wither in low or high myte of index 
+            order = mergeindex(data);
         }
     }
     
-    i2csendread10bit(bfrptr,data);
+    if (I2CSTATbits.R_W ==1){
+        i2csendread10bit(bfrptr,data);
+    }
+    
 
     return;      
 }
