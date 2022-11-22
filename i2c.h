@@ -21,21 +21,27 @@
 
 #define NPIXEL 2547
 
-    struct byteinfo{
+   
+
+    typedef struct byteinfo{ 
     int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
     int byte; /*!< what byte it's going to send */
     int retorno; /*!<Function return, used for keeping track of things. */
     int index; /*!< Pixel index */
-    };
-
-typedef struct byteinfo info;
-
+    int indexh; /*!< Pixel index low byte*/
+    int indexl; /*!< Pixel index high byte*/
+    } byteinfo;
+    
 void i2cinitm (void);
-info* i2cinits (void);
+struct byteinfo* i2cinits (void);
 void i2cmsend (char sadd, char data);
 void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas);
+void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas);
 void i2csend (char data);
+int getindex (byteinfo *datas);
+int getindexlow (byteinfo *datas);
+int getindexhigh (byteinfo *datas);
+int mergeindex (byteinfo *datas);
 
 
 

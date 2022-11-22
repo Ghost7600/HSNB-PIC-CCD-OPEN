@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hahn/MPLABXProjects/HSNB-Alignment-PIC-CCD/nbproject/Makefile-XC16_24FJ256GA110.mk</file>
-            <file>file:/C:/Users/hahn/MPLABXProjects/HSNB-Alignment-PIC-CCD/i2c.c</file>
-            <file>file:/C:/Users/hahn/MPLABXProjects/HSNB-Alignment-PIC-CCD/main.c</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/i2c.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/timer.c</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/i2c.c</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/timer.h</file>
+            <file>file:/D:/Work/HSNB-Alignment-PIC-CCD/main.c</file>
         </group>
     </open-files>
 </project-private>

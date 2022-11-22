@@ -47,14 +47,14 @@
    //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
-    volatile info *sadd;
+    volatile byteinfo *sadd;
    //volatile unsigned int *bfrptr;
    
-    struct byteinfo uno = {.byte =0 ,.retorno=1};
+    struct byteinfo uno = {.byte =0 ,.retorno=1}; //allocates structure and initializaes a few values
     
-    struct byteinfo *ptr = &uno;
+    struct byteinfo *ptr = &uno; //creates a pointer ptr to the struct uno
     
-    volatile unsigned int (*bfrptr) [NPIXEL] = &buffer;
+    volatile unsigned int (*bfrptr) [NPIXEL] = &buffer; //creates a pointer bfrptr that points to the array of pixels
     
     int counter =0;
    
@@ -166,16 +166,10 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
-    I2CCONbits.SCLREL = 0;
-    start_flag = I2CRCV;
-    debug++;
-    
-    i2csendread10bit(bfrptr,ptr);
-    
-
+    I2C1CONbits.SCLREL = 0; //holds clock
+    treati2c(&debug);
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
-    IFS1bits.SI2C1IF = 0;
-    return;
+    IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }
 
 

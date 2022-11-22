@@ -22,6 +22,8 @@
 #define TRUE 1
 #define FALSE 0
 
+
+
 void i2cinitm(void)
 {
     I2C1BRG = I2C_BRG;
@@ -49,10 +51,10 @@ void i2cmsend (char sadd, char data)
 //    }
     I2CCONbits.PEN = 1; //send stop condition
     
-    
+        
 }
 
-info* i2cinits()
+byteinfo* i2cinits()
 {
    
     // CONTROL REGISTER
@@ -67,7 +69,7 @@ info* i2cinits()
     IEC1bits.SI2CIE = 1;            // enable SI2CIF interrupt SlaveI2CFlag
     IFS1bits.SI2CIF = 0;
     
-    info*saddress;
+    byteinfo*saddress;
     
     saddress = malloc (sizeof(struct byteinfo));
     
@@ -77,14 +79,33 @@ info* i2cinits()
     // STATUS REGISTER   
 }
 
-int getindex (info *datas)
+int getindex (byteinfo* datas)
 {
     return datas ->index;
 
 }
 
+int getindexlow (byteinfo* datas)
+{
+    return datas ->index;
 
-void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],info *datas)
+}
+
+int getindexhigh (byteinfo* datas)
+{
+    return datas ->indexh;
+
+}
+
+int mergeindex (byteinfo *datas)
+{
+    int low = getindexlow(datas);
+    int high = getindexhigh(datas);
+    datas->index = high << 8 && low;  // there might be a problem in this line, not sure if the arrow operator wil work
+    return datas->index;
+}
+
+void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas)
 {   
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     
@@ -117,4 +138,14 @@ void i2csend (char data){
         
        I2CTRN = 0b11001010; // Transfer register, write data here.       
     }
+}
+
+void treati2c (int *debug, byteinfo *ptr, volatile unsigned int (*bfrptr) [NPIXEL])
+{
+    int start_flag = I2CRCV; // reads buffer to clear register
+    debug++;
+    
+    i2csendread10bit(bfrptr,ptr);
+
+    return;      
 }
