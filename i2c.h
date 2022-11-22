@@ -30,7 +30,14 @@
     int index; /*!< Pixel index */
     int indexh; /*!< Pixel index low byte*/
     int indexl; /*!< Pixel index high byte*/
+    int order; //used to keep track of what instruction the pic is recieving
     } byteinfo;
+    
+    typedef enum{
+        NADA,
+        LOWINDEX,
+        HIGHINDEX,          
+    };
     
 void i2cinitm (void);
 struct byteinfo* i2cinits (void);
@@ -41,7 +48,10 @@ void i2csend (char data);
 int getindex (byteinfo *datas);
 int getindexlow (byteinfo *datas);
 int getindexhigh (byteinfo *datas);
+int getorder (byteinfo *datas);
 int mergeindex (byteinfo *datas);
+void storeindex (byteinfo* data, int order);
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL]);
 
 
 

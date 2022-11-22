@@ -167,7 +167,7 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
     I2C1CONbits.SCLREL = 0; //holds clock
-    treati2c(&debug);
+    treati2c(ptr,bfrptr);
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }

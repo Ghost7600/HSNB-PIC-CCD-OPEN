@@ -87,14 +87,18 @@ int getindex (byteinfo* datas)
 
 int getindexlow (byteinfo* datas)
 {
-    return datas ->index;
+    return datas ->indexl;
 
 }
 
 int getindexhigh (byteinfo* datas)
 {
     return datas ->indexh;
+}
 
+int getorder(byteinfo* datas)
+{
+    return datas ->order;
 }
 
 int mergeindex (byteinfo *datas)
@@ -140,12 +144,40 @@ void i2csend (char data){
     }
 }
 
-void treati2c (int *debug, byteinfo *ptr, volatile unsigned int (*bfrptr) [NPIXEL])
+void storeindex (byteinfo* data, int order)
 {
-    int start_flag = I2CRCV; // reads buffer to clear register
-    debug++;
+    switch (getorder(data)) {
+                    case LOWINDEX:
+                        data->indexl = order;
+                        data -> order = 0;
+                        break;
+
+                    case HIGHINDEX:
+                        data->indexh = order;
+                        data -> order = 0;
+                        break;
+                }
+}
+
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL])
+{
+    if (I2CSTATbits.R_W == 0) //case master is trying to write
+    {
+        int order = I2CRCV; // reads buffer to clear register and store data
+        switch (order) {
+            case LOWINDEX:
+                data->order = order;
+                break;
+            case HIGHINDEX:
+                data->order = order;
+                break;
+                
+            default: storeindex (data,order);
+                
+        }
+    }
     
-    i2csendread10bit(bfrptr,ptr);
+    i2csendread10bit(bfrptr,data);
 
     return;      
 }
