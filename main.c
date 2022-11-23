@@ -56,7 +56,7 @@
     
     volatile unsigned int (*bfrptr) [NPIXEL] = &buffer; //creates a pointer bfrptr that points to the array of pixels
     
-    int counter =0;
+    int counter = 0;
    
  //  int BufferA[NPIXEL] __attribute__((space(dma)));
  //  int BufferB[NPIXEL] __attribute__((space(dma)));
@@ -118,7 +118,7 @@ while(1)
     //Query I2C when to start
    //while (start_flag == 0){};          //wait for start signal from Raspi
    
-   debug =1;
+   //debug =1;
 
    af_raspi(); // waits and setups after raspis signal
    
@@ -167,7 +167,7 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
     I2C1CONbits.SCLREL = 0; //holds clock
-    treati2c(ptr,bfrptr);
+    treati2c(ptr,bfrptr,&debug);
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }

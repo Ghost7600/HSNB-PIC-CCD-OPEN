@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/XC16_24FJ256GA110/production/HSNB-Alignment-PIC-CCD.production.elf">
+  <executable name="dist/XC16_24FJ256GA110/debug/HSNB-Alignment-PIC-CCD.debug.elf">
     <memory name="data">
       <units>bytes</units>
       <length>8192</length>
-      <used>5132</used>
-      <free>3060</free>
+      <used>5212</used>
+      <free>2980</free>
     </memory>
     <memory name="program">
       <units>bytes</units>
       <length>131328</length>
-      <used>2661</used>
-      <free>128667</free>
+      <used>2742</used>
+      <free>128586</free>
     </memory>
   </executable>
 </project>

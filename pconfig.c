@@ -21,7 +21,7 @@
 #define T2 1                           //Zyklenzahl für 500ns   2   
 #define T3 4
 
- int debug =0;
+ int debug =187;
 
 void pconfig (void){
    

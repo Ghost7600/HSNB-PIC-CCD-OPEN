@@ -101,11 +101,19 @@ int getorder(byteinfo* datas)
     return datas ->order;
 }
 
+int gethl(byteinfo* datas)
+{
+    return datas ->hl;
+}
+
 int mergeindex (byteinfo *datas)
 {
     int low = getindexlow(datas);
     int high = getindexhigh(datas);
-    datas->index = high << 8 && low;  // there might be a problem in this line, not sure if the arrow operator wil work
+   // datas->index = (high << 8) | low;  // there might be a problem in this line, not sure if the arrow operator wil work
+    int shigh = high << 8;
+    datas -> index = shigh | low;
+    int i = datas->index;
     return datas->index;
 }
 
@@ -116,7 +124,7 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *da
     
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
-    
+    int highlow = gethl(datas);
     if(datas->hl == 0){
         i2csend(inputbuffer[index] && 0x00FF);
         datas->hl = 1;
@@ -143,7 +151,7 @@ void i2csend (char data){
        //TRISBbits.TRISB11 = 0;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
        //TRISBbits.TRISB10 = 1;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
         
-       I2CTRN = 0b11001010; // Transfer register, write data here.       
+       I2CTRN = data; // Transfer register, write data here.       
     }
 }
 
@@ -164,7 +172,7 @@ void storeindex (byteinfo* data, int order)
                 }
 }
 
-void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL])
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int* debug)
 {
     if (I2CSTATbits.R_W == 0) //case master is trying to write
     {
@@ -180,6 +188,7 @@ void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL])
                 
             default: storeindex (data,order);  //stores value recieved by the arduino wither in low or high myte of index 
             order = mergeindex(data);
+            debug = getindex(data);
         }
     }
     

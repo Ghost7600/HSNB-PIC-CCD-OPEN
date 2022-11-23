@@ -50,8 +50,9 @@ int getindexlow (byteinfo *datas);
 int getindexhigh (byteinfo *datas);
 int getorder (byteinfo *datas);
 int mergeindex (byteinfo *datas);
+int gethl(byteinfo* datas);
 void storeindex (byteinfo* data, int order);
-void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL]);
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int* debug);
 
 
 
