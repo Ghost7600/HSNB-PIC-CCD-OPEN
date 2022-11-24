@@ -19,7 +19,7 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-#define NPIXEL 115
+#define NPIXEL 10
 
    
 

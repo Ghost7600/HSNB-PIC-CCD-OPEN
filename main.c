@@ -153,13 +153,13 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 {
-    if(i<=NPIXEL)   {
-                    buffer[i]= ADCBUF0;
-                    i++;
-                    }
-    else{
-        c = 4723;
-        }
+//    if(i<=NPIXEL)   {
+//                    buffer[i]= ADCBUF0;
+//                    i++;
+//                    }
+//    else{
+//        c = 4723;
+//        }
     IFS0bits.AD1IF=0;
     return;
 }
@@ -167,12 +167,12 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
     I2C1CONbits.SCLREL = 0; //holds clock
-    int tt = buffer[0];
-    tt = buffer[5];
-    buffer[5] = 35; 
-    buffer[4] = 34; 
-    tt = buffer[5];
-    //buffer[0] = 15;
+//    int tt = buffer[0];
+//    tt = buffer[5];
+//    buffer[5] = 35; 
+//    buffer[4] = 34; 
+//    tt = buffer[5];
+    // buffer[0] = 15;
     treati2c(ptr,bfrptr,&debug);
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag

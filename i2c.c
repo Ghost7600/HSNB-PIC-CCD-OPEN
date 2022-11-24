@@ -119,7 +119,7 @@ int mergeindex (byteinfo *datas)
 void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas)
 {   
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
-    datas->hl = 0;
+    //datas->hl = 0;
     
     
     //int index = mergeindex(datas); commented to allow index incrementation
@@ -130,7 +130,7 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *da
         volatile unsigned int *t1 = inputbuffer[index];
         unsigned int t3 = *t1;
         unsigned int t2 = (t3 && 0x00FF);
-        char kara = t2;
+        char kara = t2 && 0x00FF;
         i2csend(kara);
         datas->hl = 1;
     }

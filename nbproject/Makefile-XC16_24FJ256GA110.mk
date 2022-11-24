@@ -95,146 +95,146 @@ MP_LINKER_FILE_OPTION=,--script=p24HJ128GP202.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/configuration_bits.o: configuration_bits.c  .generated_files/flags/XC16_24FJ256GA110/9d12e8a05874f27c936d7f1472dcd1cc4b3f668e .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/configuration_bits.o: configuration_bits.c  .generated_files/flags/XC16_24FJ256GA110/f92fb5c8227e267914a6c0d9563ad9f852d07bd4 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/configuration_bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/interrupts.o: interrupts.c  .generated_files/flags/XC16_24FJ256GA110/a7168c95dfa154d925d3ed470a0d8dbd82679f6f .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/interrupts.o: interrupts.c  .generated_files/flags/XC16_24FJ256GA110/5b75af94f69b7a7121a146d9f71750fbd1496adc .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/interrupts.o.d 
 	@${RM} ${OBJECTDIR}/interrupts.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  interrupts.c  -o ${OBJECTDIR}/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/interrupts.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  interrupts.c  -o ${OBJECTDIR}/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/interrupts.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/flags/XC16_24FJ256GA110/37e057fd86ceb1a8fec7f03ab753d0843a2096dc .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/XC16_24FJ256GA110/fb97ff47f52fbcef200ff1c2fef66beddc3ba91f .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/system.o: system.c  .generated_files/flags/XC16_24FJ256GA110/9c346eed393de09f7f124cbba249be2d5a2434e3 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/system.o: system.c  .generated_files/flags/XC16_24FJ256GA110/f2abd8fb319463d8e0212dc0047099024343517e .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/system.o.d 
 	@${RM} ${OBJECTDIR}/system.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/system.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/system.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/traps.o: traps.c  .generated_files/flags/XC16_24FJ256GA110/112eec5bb5faa3e15518ce2d4b4e1e865889cbfd .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/traps.o: traps.c  .generated_files/flags/XC16_24FJ256GA110/bff22f7d0068818bbf3e35b8bd5eef469ba7d64a .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/traps.o.d 
 	@${RM} ${OBJECTDIR}/traps.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/traps.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/traps.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/user.o: user.c  .generated_files/flags/XC16_24FJ256GA110/53337ae3f20d6a71fdf33def86c50ce93747c3a2 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/user.o: user.c  .generated_files/flags/XC16_24FJ256GA110/5d079b4d2743a8fdfaf86635a83833558584523b .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/user.o.d 
 	@${RM} ${OBJECTDIR}/user.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/user.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/user.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/timer.o: timer.c  .generated_files/flags/XC16_24FJ256GA110/b698f32390c692e41619e04ffe17b45c805cdd14 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/timer.o: timer.c  .generated_files/flags/XC16_24FJ256GA110/169c220115480a29e01760954398dea03807e96c .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/timer.o.d 
 	@${RM} ${OBJECTDIR}/timer.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  timer.c  -o ${OBJECTDIR}/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  timer.c  -o ${OBJECTDIR}/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/dma.o: dma.c  .generated_files/flags/XC16_24FJ256GA110/cee94d67762c82a7f86ce22b06fadb4bb213f68b .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/dma.o: dma.c  .generated_files/flags/XC16_24FJ256GA110/7636c76a9967652561afc59437a03d0e5c875804 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/dma.o.d 
 	@${RM} ${OBJECTDIR}/dma.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  dma.c  -o ${OBJECTDIR}/dma.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/dma.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  dma.c  -o ${OBJECTDIR}/dma.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/dma.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/pconfig.o: pconfig.c  .generated_files/flags/XC16_24FJ256GA110/d033c0033c0eb427864e66ffbc6f5ab83831e66d .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/pconfig.o: pconfig.c  .generated_files/flags/XC16_24FJ256GA110/54b26c1e4f1c94132cec19e8b1c7ba0f798006e6 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pconfig.o.d 
 	@${RM} ${OBJECTDIR}/pconfig.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  pconfig.c  -o ${OBJECTDIR}/pconfig.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/pconfig.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  pconfig.c  -o ${OBJECTDIR}/pconfig.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/pconfig.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/oc.o: oc.c  .generated_files/flags/XC16_24FJ256GA110/e1b5a08fbe7e703b8380d1934de1162a8595874c .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/oc.o: oc.c  .generated_files/flags/XC16_24FJ256GA110/a9dcae9c4751eb6bf544b527503525747a8c8d44 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/oc.o.d 
 	@${RM} ${OBJECTDIR}/oc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  oc.c  -o ${OBJECTDIR}/oc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/oc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  oc.c  -o ${OBJECTDIR}/oc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/oc.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/clkswitch.o: clkswitch.c  .generated_files/flags/XC16_24FJ256GA110/7df97bf91268884973da1e7ba7483d50f9f858e7 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/clkswitch.o: clkswitch.c  .generated_files/flags/XC16_24FJ256GA110/ac19ed0c8d150090194e4c36a130d234bcb2ce5a .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/clkswitch.o.d 
 	@${RM} ${OBJECTDIR}/clkswitch.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  clkswitch.c  -o ${OBJECTDIR}/clkswitch.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/clkswitch.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  clkswitch.c  -o ${OBJECTDIR}/clkswitch.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/clkswitch.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/XC16_24FJ256GA110/63a2d2860e5cce96af422fb010c5e21c365f2135 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/XC16_24FJ256GA110/7e1944de5c9d5e531320578a766fa2fa85d1f89c .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/i2c.o.d 
 	@${RM} ${OBJECTDIR}/i2c.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  i2c.c  -o ${OBJECTDIR}/i2c.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/i2c.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	${MP_CC} $(MP_EXTRA_CC_PRE)  i2c.c  -o ${OBJECTDIR}/i2c.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/i2c.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 else
-${OBJECTDIR}/configuration_bits.o: configuration_bits.c  .generated_files/flags/XC16_24FJ256GA110/57567d5e49a7d67173d3ba84eb9111ed35b82e04 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/configuration_bits.o: configuration_bits.c  .generated_files/flags/XC16_24FJ256GA110/cd49d33565d9e7d85a655c9ddbb1f22579e865cf .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/configuration_bits.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/interrupts.o: interrupts.c  .generated_files/flags/XC16_24FJ256GA110/df5b9f74ed0a1a3d8094856c2bc3749262100e08 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/interrupts.o: interrupts.c  .generated_files/flags/XC16_24FJ256GA110/f50062c10d8101aef0b4dea2c03e0a121185315f .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/interrupts.o.d 
 	@${RM} ${OBJECTDIR}/interrupts.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  interrupts.c  -o ${OBJECTDIR}/interrupts.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/interrupts.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/flags/XC16_24FJ256GA110/d0178f4193162417a05e05b42575d1da8dd3a03 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/XC16_24FJ256GA110/67aa3d0766a0b9d60c52010df4a2bf3ad1ab179d .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/system.o: system.c  .generated_files/flags/XC16_24FJ256GA110/10b771b7551d3f1cd111c7428b89cb1e6003607c .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/system.o: system.c  .generated_files/flags/XC16_24FJ256GA110/f84bcca347cccd56b086dc46b1a5a3ca413fdc82 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/system.o.d 
 	@${RM} ${OBJECTDIR}/system.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/system.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/traps.o: traps.c  .generated_files/flags/XC16_24FJ256GA110/e09723ab8eab1addc9c1c178d232363920cd5d7d .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/traps.o: traps.c  .generated_files/flags/XC16_24FJ256GA110/896ffff3eea5cf7701d509f2c3f029d4938f7bd4 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/traps.o.d 
 	@${RM} ${OBJECTDIR}/traps.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/traps.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/user.o: user.c  .generated_files/flags/XC16_24FJ256GA110/8772d069a5d8e92e283eceaea86eff1569b5c8d7 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/user.o: user.c  .generated_files/flags/XC16_24FJ256GA110/377dfbc7149d9f037bbe1e0e76ea52e19aff7864 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/user.o.d 
 	@${RM} ${OBJECTDIR}/user.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/user.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/timer.o: timer.c  .generated_files/flags/XC16_24FJ256GA110/4696f3ed8782b90b419e8d8cbbab878ee04c9aaa .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/timer.o: timer.c  .generated_files/flags/XC16_24FJ256GA110/67a7f7aae15189490d9890241d2c6e1edd529e15 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/timer.o.d 
 	@${RM} ${OBJECTDIR}/timer.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  timer.c  -o ${OBJECTDIR}/timer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/dma.o: dma.c  .generated_files/flags/XC16_24FJ256GA110/ec30c8c7d536ea99c42aaafeed8b1bd2b0d13f72 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/dma.o: dma.c  .generated_files/flags/XC16_24FJ256GA110/68a706f045e77e7d2b3b94a787618a559e4f2fb1 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/dma.o.d 
 	@${RM} ${OBJECTDIR}/dma.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  dma.c  -o ${OBJECTDIR}/dma.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/dma.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/pconfig.o: pconfig.c  .generated_files/flags/XC16_24FJ256GA110/25d6606e7777ad63dae60dc82faa78d4bf75a3a0 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/pconfig.o: pconfig.c  .generated_files/flags/XC16_24FJ256GA110/f19c6ceb1b91918bcd2a88f98208c70ca640e046 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pconfig.o.d 
 	@${RM} ${OBJECTDIR}/pconfig.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  pconfig.c  -o ${OBJECTDIR}/pconfig.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/pconfig.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/oc.o: oc.c  .generated_files/flags/XC16_24FJ256GA110/ce6353db1334bac0d6c1b5e725f87fcc510ff6ac .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/oc.o: oc.c  .generated_files/flags/XC16_24FJ256GA110/e7888f3940a5941bc65a955e75509eeb920c1e2c .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/oc.o.d 
 	@${RM} ${OBJECTDIR}/oc.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  oc.c  -o ${OBJECTDIR}/oc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/oc.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/clkswitch.o: clkswitch.c  .generated_files/flags/XC16_24FJ256GA110/530262fe33cb08dad5d38ed5d98bc8b8f4f01d4e .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/clkswitch.o: clkswitch.c  .generated_files/flags/XC16_24FJ256GA110/513cd30466d585c117e960c3523b3ed170b81655 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/clkswitch.o.d 
 	@${RM} ${OBJECTDIR}/clkswitch.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  clkswitch.c  -o ${OBJECTDIR}/clkswitch.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/clkswitch.o.d"        -g -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/XC16_24FJ256GA110/3930956be32b4453fd0057afb157038013f1d26 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/XC16_24FJ256GA110/eaf836deba838b95ddd5dd76af46d2db4780ea57 .generated_files/flags/XC16_24FJ256GA110/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/i2c.o.d 
 	@${RM} ${OBJECTDIR}/i2c.o 
@@ -259,7 +259,7 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${DISTDIR}/HSNB-Alignment-PIC-CCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/HSNB-Alignment-PIC-CCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)      -Wl,,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o ${DISTDIR}/HSNB-Alignment-PIC-CCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG   -omf=elf -DXPRJ_XC16_24FJ256GA110=$(CND_CONF)    $(COMPARISON_BUILD)   -mreserve=data@0x800:0x81F -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x825 -mreserve=data@0x826:0x84F   -Wl,,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,${DISTDIR}/memoryfile.xml$(MP_EXTRA_LD_POST)  -mdfp="${DFP_DIR}/xc16" 
 	
 else
 ${DISTDIR}/HSNB-Alignment-PIC-CCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   

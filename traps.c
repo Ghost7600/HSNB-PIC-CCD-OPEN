@@ -72,8 +72,10 @@ void __attribute__((interrupt,no_auto_psv)) _OscillatorFail(void)
 
 void __attribute__((interrupt,no_auto_psv)) _AddressError(void)
 {
+    
+        asm (".pword 0xDA4000");
         INTCON1bits.ADDRERR = 0;        /* Clear the trap flag */
-        while (1);
+        //while (1);
 }
 void __attribute__((interrupt,no_auto_psv)) _StackError(void)
 {
