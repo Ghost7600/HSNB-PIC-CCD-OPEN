@@ -43,8 +43,8 @@
 
 //I2C SETUP END
 //PUBLIC VAR BEGIN
-    volatile unsigned int buffer[NPIXEL] = {2,4,6,8,10,12,14,16,18,20};    //Array mit Anzahl an Pixel 
-   //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
+    volatile unsigned int buffer[10]={0,1,2,3,4,5,6,7,8,9};    //Array mit Anzahl an Pixel 
+    //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
     volatile byteinfo *sadd;
@@ -167,6 +167,11 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
     I2C1CONbits.SCLREL = 0; //holds clock
+    int tt = buffer[0];
+    tt = buffer[5];
+    buffer[5] = 35; 
+    tt = buffer[5];
+    //buffer[0] = 15;
     treati2c(ptr,bfrptr,&debug);
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
