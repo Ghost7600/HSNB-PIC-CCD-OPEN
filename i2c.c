@@ -113,25 +113,31 @@ int mergeindex (byteinfo *datas)
    // datas->index = (high << 8) | low;  // there might be a problem in this line, not sure if the arrow operator wil work
     int shigh = high << 8;
     datas -> index = shigh | low;
-    int i = datas->index;
     return datas->index;
 }
 
-void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas)
+void i2csendread10bit (volatile unsigned int *inputbuffer[NPIXEL],byteinfo *datas)
 {   
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
+    datas->hl = 0;
     
     
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
     int highlow = gethl(datas);
-    if(datas->hl == 0){
-        i2csend(inputbuffer[index] && 0x00FF);
+    if(highlow == 0){
+//        char kara = inputbuffer[index] && 0x00FF;
+        int t1 = *inputbuffer[index];
+        int t2 = (t1 && 0x00FF);
+        char kara = t2;
+        i2csend(kara);
         datas->hl = 1;
     }
     
-    if (datas->hl == 1){
-        i2csend((inputbuffer[index] && 0xFF00)>> 8);  
+    if (highlow == 1){
+        int t1 = ((inputbuffer[index] && 0xFF00)>> 8);
+        char kara = t1;
+        i2csend(kara);  
         datas->hl = 0;
         datas->index = getindex(datas) + 1;
     }
@@ -147,7 +153,7 @@ void i2csend (char data){
 
     while (I2CSTATbits.IWCOL == 0 && I2CSTATbits.TBF==0)      //No collision AND Transmit complete
     {
-       
+        char data = data;
        //TRISBbits.TRISB11 = 0;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
        //TRISBbits.TRISB10 = 1;              // !!!!! Set tristate to digital out DONT THINK WE SHOULD DO THAT
         

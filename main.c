@@ -43,7 +43,7 @@
 
 //I2C SETUP END
 //PUBLIC VAR BEGIN
-    volatile unsigned int buffer[NPIXEL];    //Array mit Anzahl an Pixel 
+    volatile unsigned int buffer[NPIXEL] = {2,4,6,8,10,12,14,16,18,20};    //Array mit Anzahl an Pixel 
    //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
