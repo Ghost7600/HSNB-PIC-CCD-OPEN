@@ -170,6 +170,7 @@ void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
     int tt = buffer[0];
     tt = buffer[5];
     buffer[5] = 35; 
+    buffer[4] = 34; 
     tt = buffer[5];
     //buffer[0] = 15;
     treati2c(ptr,bfrptr,&debug);

@@ -19,7 +19,7 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-#define NPIXEL 10
+#define NPIXEL 115
 
    
 
@@ -43,7 +43,7 @@ void i2cinitm (void);
 struct byteinfo* i2cinits (void);
 void i2cmsend (char sadd, char data);
 void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int (*inputbuffer),byteinfo *datas);
+void i2csendread10bit (volatile unsigned int *(inputbuffer)[NPIXEL],byteinfo *datas);
 void i2csend (char data);
 int getindex (byteinfo *datas);
 int getindexlow (byteinfo *datas);

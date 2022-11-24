@@ -116,7 +116,7 @@ int mergeindex (byteinfo *datas)
     return datas->index;
 }
 
-void i2csendread10bit (volatile unsigned int  (*inputbuffer),byteinfo *datas)
+void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas)
 {   
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
     datas->hl = 0;
@@ -127,7 +127,7 @@ void i2csendread10bit (volatile unsigned int  (*inputbuffer),byteinfo *datas)
     int highlow = gethl(datas);
     if(highlow == 0){
 //        char kara = inputbuffer[index] && 0x00FF;
-        int *t1 = inputbuffer;
+        int *t1 = inputbuffer[index];
         int t3 = *t1;
         int t2 = (t3 && 0x00FF);
         char kara = t2;
@@ -136,7 +136,7 @@ void i2csendread10bit (volatile unsigned int  (*inputbuffer),byteinfo *datas)
     }
     
     if (highlow == 1){
-        int t1 = ((inputbuffer[index] && 0xFF00)>> 8);
+        int t1 = ((inputbuffer && 0xFF00)>> 8);
         char kara = t1;
         i2csend(kara);  
         datas->hl = 0;
