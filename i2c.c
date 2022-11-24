@@ -127,9 +127,9 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *da
     int highlow = gethl(datas);
     if(highlow == 0){
 //        char kara = inputbuffer[index] && 0x00FF;
-        int *t1 = inputbuffer[index];
-        int t3 = *t1;
-        int t2 = (t3 && 0x00FF);
+        volatile unsigned int *t1 = inputbuffer[index];
+        unsigned int t3 = *t1;
+        unsigned int t2 = (t3 && 0x00FF);
         char kara = t2;
         i2csend(kara);
         datas->hl = 1;
@@ -195,13 +195,13 @@ void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int* de
                 
             default: storeindex (data,order);  //stores value recieved by the arduino wither in low or high myte of index 
             order = mergeindex(data);
-            debug = getindex(data);
+            *debug = getindex(data);
         }
     }
     
     if (I2CSTATbits.R_W ==1){
         int index =  getindex(data);
-        i2csendread10bit(bfrptr[index],data);
+        i2csendread10bit(bfrptr,data);
     }
     
 

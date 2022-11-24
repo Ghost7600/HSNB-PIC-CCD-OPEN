@@ -43,7 +43,7 @@
 
 //I2C SETUP END
 //PUBLIC VAR BEGIN
-    volatile unsigned int buffer[10]={0,1,2,3,4,5,6,7,8,9};    //Array mit Anzahl an Pixel 
+    volatile unsigned int buffer[NPIXEL]={0,1,2,3,4,5,6,7,8,9};    //Array mit Anzahl an Pixel 
     //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
@@ -54,7 +54,7 @@
     
     struct byteinfo *ptr = &uno; //creates a pointer ptr to the struct uno
     
-    volatile unsigned int (*bfrptr) [NPIXEL] = &buffer; //creates a pointer bfrptr that points to the array of pixels
+    volatile unsigned int (*bfrptr)[NPIXEL] = &buffer; //creates a pointer bfrptr that points to the array of pixels
     
     int counter = 0;
    
