@@ -43,7 +43,7 @@
 
 //I2C SETUP END
 //PUBLIC VAR BEGIN
-    volatile unsigned int buffer[NPIXEL]={0,1,2,3,4,5,6,7,8,9};    //Array mit Anzahl an Pixel 
+    volatile unsigned int buffer[NPIXEL]={99,1,2,3,4,5,6,7,8,9};    //Array mit Anzahl an Pixel 
     //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
@@ -93,12 +93,13 @@ int main(void) {
     
 //    i2cinitm();
 //    
-//    while (1)
-//    {
-//        i2cmsend (0b110010,0b101);
-//    }
     
-   
+    for (int i=0; i<NPIXEL; i++)
+    {
+        buffer[i]= i*2;
+    }
+    
+    buffer [0] = 99;
         
        
  /*MAIN PROGRAM MAIN
@@ -167,13 +168,17 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
     I2C1CONbits.SCLREL = 0; //holds clock
-//    int tt = buffer[0];
-//    tt = buffer[5];
-//    buffer[5] = 35; 
-//    buffer[4] = 34; 
-//    tt = buffer[5];
-    // buffer[0] = 15;
-    treati2c(ptr,bfrptr,&debug);
+    uint8_t rcv = I2CRCV;
+    if(I2CSTATbits.R_W ==1) 
+    {
+        treati2c(ptr,bfrptr,&debug,rcv);
+    }
+    
+    if(I2CSTATbits.R_W ==0) 
+    {
+        treati2cwrite(ptr,bfrptr,&debug,rcv);
+    }
+    
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }

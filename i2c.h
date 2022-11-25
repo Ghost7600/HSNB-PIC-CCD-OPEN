@@ -19,7 +19,7 @@
 
 // Comment a function and leverage automatic documentation with slash star star
 
-#define NPIXEL 10
+#define NPIXEL 50
 
    
 
@@ -41,10 +41,10 @@
     
 void i2cinitm (void);
 struct byteinfo* i2cinits (void);
-void i2cmsend (char sadd, char data);
+void i2cmsend (uint8_t sadd, uint8_t data);
 void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas);
-void i2csend (char data);
+void i2csendread10bit (volatile unsigned int ((*inputbuffer)[NPIXEL]),byteinfo *datas);
+void i2csend (uint8_t data);
 int getindex (byteinfo *datas);
 int getindexlow (byteinfo *datas);
 int getindexhigh (byteinfo *datas);
@@ -52,7 +52,8 @@ int getorder (byteinfo *datas);
 int mergeindex (byteinfo *datas);
 int gethl(byteinfo* datas);
 void storeindex (byteinfo* data, int order);
-void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int* debug);
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr)[NPIXEL], int* debug, uint8_t rcv);
+void treati2cwrite (byteinfo *data, volatile unsigned int (*bfrptr)[NPIXEL], int* debug, uint8_t rcv);
 
 
 
