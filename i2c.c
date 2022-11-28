@@ -68,8 +68,6 @@ byteinfo* i2cinits() {
 
     saddress = malloc(sizeof (struct byteinfo));
 
-
-
     return saddress;
     // STATUS REGISTER   
 }
@@ -93,12 +91,16 @@ int getindexhigh(byteinfo* datas) {
     return datas ->indexh;
 }
 
+int gettestflag(byteinfo* datas) {
+    return datas ->testflag;
+}
+
 int getorder(byteinfo* datas) {
     return datas ->order;
 }
 
 int gethl(byteinfo* datas) {
-    return datas ->hl;
+    return datas ->hlst;
 }
 
 int mergeindex(byteinfo *datas) {
@@ -110,22 +112,22 @@ int mergeindex(byteinfo *datas) {
     return datas->index;
 }
 
-void i2csendread10bit(volatile unsigned int (*inputbuffer)[NPIXEL], byteinfo *datas) {
+void i2csendread10bit(volatile unsigned int ((*inputbuffer)[NPIXEL]), byteinfo *datas) {
     I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
 
 
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
-    if (datas->hl == 0) {
+
+    if (datas->hlst == 1) {
+        i2csend((inputbuffer[index] && 0xFF00) >> 8);
+        datas->hlst = 0;
+        datas->index = getindex(datas) + 1;
+    } else {
         i2csend(inputbuffer[index] && 0x00FF);
-        datas->hl = 1;
+        datas->hlst = 1;
     }
 
-    if (datas->hl == 1) {
-        i2csend((inputbuffer[index] && 0xFF00) >> 8);
-        datas->hl = 0;
-        datas->index = getindex(datas) + 1;
-    }
 
     //    char lowbyte,highbyte =0x0;
     //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
@@ -148,36 +150,38 @@ void i2csend(char data) {
 
 void storeindex(byteinfo* data, int order) {
     switch (getorder(data)) { //reads order stored in struct and decides if its writing low or high byte
-        case LOWINDEX:
-            data->indexl = order;
-            data -> order = 0;
-            data ->index = mergeindex(data);
-            break;
-
-        case HIGHINDEX:
-            data->indexh = order;
-            data -> order = 0;
-            data ->index = mergeindex(data);
-            break;
+//        case LOWINDEX:
+//            data->indexl = order;
+//            data -> order = 0;
+//            data ->index = mergeindex(data);
+//            break;
+//
+//        case HIGHINDEX:
+//            data->indexh = order;
+//            data -> order = 0;
+//            data ->index = mergeindex(data);
+//            break;
     }
 }
 
-void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int order) {
+void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int order) {
+
     if (I2CSTATbits.D_A == 1) {
+        data -> testflag = 0;
         if (I2CSTATbits.R_W == 0) //case master is trying to write
         {
 
-            switch (order) //switch case for knowing if its writing 
-            {
-                case LOWINDEX: //here it's telling us that it is going to store a lowbyte for the index
-                    data->order = order; //here we are passing the instruction to the structure
-                    break;
-                case HIGHINDEX: //here it's telling us that it is going to store a highbyte for the index
-                    data->order = order; //here we are passing the instruction to the structure
+            if (data->counter == 0) {       //GOT INSTRUCTION 
+                switch (order) //switch case for knowing if its writing 
+                {
+                    case INDEXING: data->counter = 1;
                     break;
 
-                default: storeindex(data, order); //stores value recieved by the arduino wither in low or high myte of index 
+                    default: storeindex(data, order); //stores value recieved by the arduino wither in low or high myte of index 
+                      
                     order = mergeindex(data);
+                    break;
+                }
             }
         }
 
@@ -185,23 +189,27 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int order
             i2csendread10bit(bfrptr, data);
         }
 
-        
-       
+
+
     }
 
-   if (I2CSTATbits.D_A == 1)
-    {
-        
-        while(_RBF){
-          int tmp = I2CRCV;  
+    if (I2CSTATbits.D_A == 0) {
+        int flag = I2CSTATbits.I2COV;
+        data->testflag = (gettestflag(data)+1);
+        I2CSTATbits.I2COV = 0;
+        I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
+        int tmp = I2CRCV;
+        while (_RBF) {
+            I2CSTATbits.I2COV = 0;
+            I2CCONbits.SCLREL = 0;
+            int tmp = I2CRCV;
         }
         data->counter = 0;
-    } 
-    
-    if (I2CSTATbits.I2COV == 1)
-    {
+    }
+
+    if (I2CSTATbits.I2COV == 1) {
         I2CSTATbits.I2COV = 0;
     }
-    
-     return;
+
+    return;
 }

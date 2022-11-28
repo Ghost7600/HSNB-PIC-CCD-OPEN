@@ -50,7 +50,7 @@
     volatile byteinfo *sadd;
    //volatile unsigned int *bfrptr;
    
-    struct byteinfo uno = {.byte =0 ,.retorno=1}; //allocates structure and initializaes a few values
+    struct byteinfo uno = {.byte =0 ,.testflag=0}; //allocates structure and initializaes a few values
     
     struct byteinfo *ptr = &uno; //creates a pointer ptr to the struct uno
     
@@ -165,7 +165,7 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
-    
+    I2CSTATbits.I2COV = 0;
     I2C1CONbits.SCLREL = 0; //holds clock
     int recieve = I2CRCV; // reads buffer to clear register and store data
     while(_RBF);

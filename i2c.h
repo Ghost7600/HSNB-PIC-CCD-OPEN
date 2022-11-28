@@ -24,10 +24,10 @@
    
 
     typedef struct byteinfo{ 
-    int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
-    int counter;
+    int hlst; /*!< Indicates if it's going to send 1 high or 0 low part. */
+    int counter; //counter for instruction, and byte high/low
     int byte; /*!< hold the full value of the byte, should not be needed but keeping here just in case*/
-    int retorno; /*!<Function return, used for keeping track of things. */
+    int testflag; /*!<Function return, used for keeping track of things. */
     int index; /*!< Pixel index */
     int indexh; /*!< Pixel index low byte*/
     int indexl; /*!< Pixel index high byte*/
@@ -36,8 +36,10 @@
     
     typedef enum{
         NADA,
-        LOWINDEX,
-        HIGHINDEX,          
+        MEASURE,
+        TRANSFERDATA,
+        STOP,
+        INDEXING,
     };
     
 void i2cinitm (void);
@@ -48,6 +50,7 @@ void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *da
 void i2csend (char data);
 int getindex (byteinfo *datas);
 int getcounter (byteinfo* datas);
+int gettestflag (byteinfo* datas);
 int getindexlow (byteinfo *datas);
 int getindexhigh (byteinfo *datas);
 int getorder (byteinfo *datas);
