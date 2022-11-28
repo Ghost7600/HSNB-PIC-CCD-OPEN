@@ -119,14 +119,12 @@ void i2csendread10bit(volatile unsigned int ((*inputbuffer)[NPIXEL]), byteinfo *
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
 
-    if (datas->hlst == 1) {
-        i2csend((inputbuffer[index] && 0xFF00) >> 8);
-        datas->hlst = 0;
-        datas->index = getindex(datas) + 1;
-    } else {
-        i2csend(inputbuffer[index] && 0x00FF);
-        datas->hlst = 1;
-    }
+    i2csend((inputbuffer[index] && 0xFF00) >> 8); //sending highbzte
+
+    //datas->index = getindex(datas) + 1; //incremental mode
+
+    i2csend(inputbuffer[index] && 0x00FF); //sending lowbyte
+
 
 
     //    char lowbyte,highbyte =0x0;
@@ -149,18 +147,14 @@ void i2csend(char data) {
 }
 
 void storeindex(byteinfo* data, int order) {
-    switch (getorder(data)) { //reads order stored in struct and decides if its writing low or high byte
-//        case LOWINDEX:
-//            data->indexl = order;
-//            data -> order = 0;
-//            data ->index = mergeindex(data);
-//            break;
-//
-//        case HIGHINDEX:
-//            data->indexh = order;
-//            data -> order = 0;
-//            data ->index = mergeindex(data);
-//            break;
+    switch (gethl(data)) { //reads order stored in struct and decides if its writing low or high byte
+        case LOWINDEX:
+            data->indexl = order;
+            break;
+
+        case HIGHINDEX:
+            data->indexh = order;
+            break;
     }
 }
 
@@ -171,17 +165,27 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
         if (I2CSTATbits.R_W == 0) //case master is trying to write
         {
 
-            if (data->counter == 0) {       //GOT INSTRUCTION 
+            if (data->counter == 0) { //GOT INSTRUCTION 
                 switch (order) //switch case for knowing if its writing 
                 {
                     case INDEXING: data->counter = 1;
-                    break;
-
-                    default: storeindex(data, order); //stores value recieved by the arduino wither in low or high myte of index 
-                      
-                    order = mergeindex(data);
-                    break;
+                        break;
                 }
+            }
+
+            if (data->counter == 1) //Instruction was indexing and is now getting first byte
+            {
+                data->hlst = HIGHINDEX; // tells the struct we are recieving High byte
+                storeindex(data, order);
+                data -> counter++;
+            }
+
+            if (data->counter == 2) //Instruction was indexing and is now getting second byte, LOWINDEX
+            {
+                data->hlst = LOWINDEX; // tells the struct we are recieving High byte
+                storeindex(data, order);
+                order = mergeindex(data);
+                data -> counter = HIGHINDEX;
             }
         }
 
@@ -194,8 +198,8 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
     }
 
     if (I2CSTATbits.D_A == 0) {
-        int flag = I2CSTATbits.I2COV;
-        data->testflag = (gettestflag(data)+1);
+        data->counter = 0;
+        data->testflag = (gettestflag(data) + 1);
         I2CSTATbits.I2COV = 0;
         I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
         int tmp = I2CRCV;

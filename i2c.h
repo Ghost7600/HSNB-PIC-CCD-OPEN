@@ -21,9 +21,7 @@
 
 #define NPIXEL 2547
 
-   
-
-    typedef struct byteinfo{ 
+typedef struct byteinfo {
     int hlst; /*!< Indicates if it's going to send 1 high or 0 low part. */
     int counter; //counter for instruction, and byte high/low
     int byte; /*!< hold the full value of the byte, should not be needed but keeping here just in case*/
@@ -32,32 +30,36 @@
     int indexh; /*!< Pixel index low byte*/
     int indexl; /*!< Pixel index high byte*/
     int order; //used to keep track of what instruction the pic is recieving
-    } byteinfo;
+} byteinfo;
+
+typedef enum {
     
-    typedef enum{
-        NADA,
-        MEASURE,
-        TRANSFERDATA,
-        STOP,
-        INDEXING,
-    };
-    
-void i2cinitm (void);
-struct byteinfo* i2cinits (void);
-void i2cmsend (char sadd, char data);
-void i2cwrite (void);
-void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas);
-void i2csend (char data);
-int getindex (byteinfo *datas);
-int getcounter (byteinfo* datas);
-int gettestflag (byteinfo* datas);
-int getindexlow (byteinfo *datas);
-int getindexhigh (byteinfo *datas);
-int getorder (byteinfo *datas);
-int mergeindex (byteinfo *datas);
+    HIGHINDEX,
+    LOWINDEX,            
+    MEASURE,
+    TRANSFERDATA,
+    STOP,
+    INDEXING,
+    NADA,
+};
+
+
+void i2cinitm(void);
+struct byteinfo* i2cinits(void);
+void i2cmsend(char sadd, char data);
+void i2cwrite(void);
+void i2csendread10bit(volatile unsigned int (*inputbuffer)[NPIXEL], byteinfo *datas);
+void i2csend(char data);
+int getindex(byteinfo *datas);
+int getcounter(byteinfo* datas);
+int gettestflag(byteinfo* datas);
+int getindexlow(byteinfo *datas);
+int getindexhigh(byteinfo *datas);
+int getorder(byteinfo *datas);
+int mergeindex(byteinfo *datas);
 int gethl(byteinfo* datas);
-void storeindex (byteinfo* data, int order);
-void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int order);
+void storeindex(byteinfo* data, int order);
+void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int order);
 
 
 
