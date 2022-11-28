@@ -118,12 +118,24 @@ void i2csendread10bit(volatile unsigned int ((*inputbuffer)[NPIXEL]), byteinfo *
 
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
-
-    i2csend((inputbuffer[index] && 0xFF00) >> 8); //sending highbzte
+    
+    if (getcounter(datas) == READ2)
+    {
+        i2csend(inputbuffer[index] && 0x00FF); //sending lowbyte
+        datas-> counter = 0;
+    }
+    
+    
+    if (getcounter(datas) == LOWINDEX)
+    {
+        i2csend((inputbuffer[index] && 0xFF00) >> 8);
+        datas->counter = READ2; 
+    }
+     //sending highbzte
 
     //datas->index = getindex(datas) + 1; //incremental mode
 
-    i2csend(inputbuffer[index] && 0x00FF); //sending lowbyte
+
 
 
 
@@ -164,7 +176,21 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
         data -> testflag = 0;
         if (I2CSTATbits.R_W == 0) //case master is trying to write
         {
-
+            if (data->counter == 2) //Instruction was indexing and is now getting second byte, LOWINDEX
+            {
+                data->hlst = LOWINDEX; // tells the struct we are recieving High byte
+                storeindex(data, order);
+                order = mergeindex(data);
+                data -> counter = HIGHINDEX;
+            }
+             
+            if (data->counter == 1) //Instruction was indexing and is now getting first byte
+            {
+                data->hlst = HIGHINDEX; // tells the struct we are recieving High byte
+                storeindex(data, order);
+                data -> counter++;
+            }           
+            
             if (data->counter == 0) { //GOT INSTRUCTION 
                 switch (order) //switch case for knowing if its writing 
                 {
@@ -173,24 +199,13 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
                 }
             }
 
-            if (data->counter == 1) //Instruction was indexing and is now getting first byte
-            {
-                data->hlst = HIGHINDEX; // tells the struct we are recieving High byte
-                storeindex(data, order);
-                data -> counter++;
-            }
 
-            if (data->counter == 2) //Instruction was indexing and is now getting second byte, LOWINDEX
-            {
-                data->hlst = LOWINDEX; // tells the struct we are recieving High byte
-                storeindex(data, order);
-                order = mergeindex(data);
-                data -> counter = HIGHINDEX;
-            }
+
+            
         }
 
         if (I2CSTATbits.R_W == 1) {
-            i2csendread10bit(bfrptr, data);
+            //i2csendread10bit(bfrptr, data);
         }
 
 

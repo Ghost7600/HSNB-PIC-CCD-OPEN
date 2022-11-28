@@ -34,13 +34,15 @@ typedef struct byteinfo {
 
 typedef enum {
     
+    NADA,
     HIGHINDEX,
-    LOWINDEX,            
+    LOWINDEX,
+    READ2,
     MEASURE,
     TRANSFERDATA,
     STOP,
     INDEXING,
-    NADA,
+    
 };
 
 
