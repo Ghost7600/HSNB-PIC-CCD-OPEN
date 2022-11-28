@@ -125,7 +125,6 @@ while(1)
     while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
         {
         Nop();
-        
         }
        i = 0;
     IEC0bits.AD1IE = 0;
@@ -166,8 +165,11 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
 {
+    
     I2C1CONbits.SCLREL = 0; //holds clock
-    treati2c(ptr,bfrptr,&debug);
+    int recieve = I2CRCV; // reads buffer to clear register and store data
+    while(_RBF);
+    treati2c(ptr,bfrptr,recieve);   
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }

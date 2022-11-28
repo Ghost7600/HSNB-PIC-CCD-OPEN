@@ -25,6 +25,7 @@
 
     typedef struct byteinfo{ 
     int hl; /*!< Indicates if it's going to send 1 high or 0 low part. */
+    int counter;
     int byte; /*!< hold the full value of the byte, should not be needed but keeping here just in case*/
     int retorno; /*!<Function return, used for keeping track of things. */
     int index; /*!< Pixel index */
@@ -46,13 +47,14 @@ void i2cwrite (void);
 void i2csendread10bit (volatile unsigned int (*inputbuffer)[NPIXEL],byteinfo *datas);
 void i2csend (char data);
 int getindex (byteinfo *datas);
+int getcounter (byteinfo* datas);
 int getindexlow (byteinfo *datas);
 int getindexhigh (byteinfo *datas);
 int getorder (byteinfo *datas);
 int mergeindex (byteinfo *datas);
 int gethl(byteinfo* datas);
 void storeindex (byteinfo* data, int order);
-void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int* debug);
+void treati2c (byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL],int order);
 
 
 
