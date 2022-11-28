@@ -4,11 +4,11 @@ Tool Name:
   c:\program files\microchip\xc16\v2.00\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00003a3c.00 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00003a3c.01 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00003a3c.02 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00003a3c.03 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00003a3c.04 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00000fa0.00 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00000fa0.01 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00000fa0.02 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00000fa0.03 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00000fa0.04 \
   -p24HJ128GP202 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/dsPIC33F-GP-MC_DFP/1.3.64/xc16 \
   -o \
@@ -112,12 +112,12 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x230           0x348  (840)
-.text                        0x430               0x45e           0x68d  (1677)
-.dinit                       0x88e                0x3c            0x5a  (90)
-.text                        0x8ca                0x5a            0x87  (135)
+.text                        0x200               0x232           0x34b  (843)
+.text                        0x432               0x45e           0x68d  (1677)
+.dinit                       0x890                0x3c            0x5a  (90)
+.text                        0x8cc                0x5a            0x87  (135)
 
-                 Total "program" memory used (bytes):          0xab6  (2742) 2%
+                 Total "program" memory used (bytes):          0xab9  (2745) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -191,88 +191,88 @@ External Symbols in Program Memory (by address):
                   0x000304                  __SI2C1Interrupt
                   0x00032c                  __OscillatorFail
                   0x000332                  __AddressError
-                  0x000338                  __StackError
-                  0x00033e                  __MathError
-                  0x000344                  __AltOscillatorFail
-                  0x00034a                  __AltAddressError
-                  0x000350                  __AltStackError
-                  0x000356                  __AltMathError
-                  0x00035c                  __DefaultInterrupt
-                  0x0003a6                  ___simple_malloc
-                  0x00041c                  ___expand_heap
-                  0x000430                  _i2cinitm
-                  0x000440                  _i2cmsend
-                  0x000468                  _i2cinits
-                  0x000490                  _getindex
-                  0x00049e                  _getindexlow
-                  0x0004ac                  _getindexhigh
-                  0x0004ba                  _getorder
-                  0x0004c8                  _gethl
-                  0x0004d4                  _mergeindex
-                  0x00051c                  _i2csendread10bit
-                  0x000592                  _i2csend
-                  0x0005b2                  _storeindex
-                  0x000608                  _treati2c
-                  0x000674                  _pconfig
-                  0x00071e                  _af_raspi
-                  0x000770                  _processSamples
-                  0x0007de                  _main
-                  0x0007fa                  _set_clkswitch
-                  0x000850                  _set_outcomp
-                  0x0008ca                  _set_timer
-                  0x0008f2                  _set_dma
-                  0x000918                  _ConfigureOscillator
-                  0x00091e                  _InitApp
+                  0x00033a                  __StackError
+                  0x000340                  __MathError
+                  0x000346                  __AltOscillatorFail
+                  0x00034c                  __AltAddressError
+                  0x000352                  __AltStackError
+                  0x000358                  __AltMathError
+                  0x00035e                  __DefaultInterrupt
+                  0x0003a8                  ___simple_malloc
+                  0x00041e                  ___expand_heap
+                  0x000432                  _i2cinitm
+                  0x000442                  _i2cmsend
+                  0x00046a                  _i2cinits
+                  0x000492                  _getindex
+                  0x0004a0                  _getindexlow
+                  0x0004ae                  _getindexhigh
+                  0x0004bc                  _getorder
+                  0x0004ca                  _gethl
+                  0x0004d6                  _mergeindex
+                  0x00051e                  _i2csendread10bit
+                  0x000594                  _i2csend
+                  0x0005b4                  _storeindex
+                  0x00060a                  _treati2c
+                  0x000676                  _pconfig
+                  0x000720                  _af_raspi
+                  0x000772                  _processSamples
+                  0x0007e0                  _main
+                  0x0007fc                  _set_clkswitch
+                  0x000852                  _set_outcomp
+                  0x0008cc                  _set_timer
+                  0x0008f4                  _set_dma
+                  0x00091a                  _ConfigureOscillator
+                  0x000920                  _InitApp
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000918                  _ConfigureOscillator
-                  0x00091e                  _InitApp
+                  0x00091a                  _ConfigureOscillator
+                  0x000920                  _InitApp
                   0x0002d4                  __ADC1Interrupt
                   0x000332                  __AddressError
-                  0x00034a                  __AltAddressError
-                  0x000356                  __AltMathError
-                  0x000344                  __AltOscillatorFail
-                  0x000350                  __AltStackError
-                  0x00035c                  __DefaultInterrupt
+                  0x00034c                  __AltAddressError
+                  0x000358                  __AltMathError
+                  0x000346                  __AltOscillatorFail
+                  0x000352                  __AltStackError
+                  0x00035e                  __DefaultInterrupt
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
                   0xf80002                  __FSS.sec
-                  0x00033e                  __MathError
+                  0x000340                  __MathError
                   0x00032c                  __OscillatorFail
                   0x000304                  __SI2C1Interrupt
-                  0x000338                  __StackError
+                  0x00033a                  __StackError
                   0x0002cc                  __T2Interrupt
-                  0x00041c                  ___expand_heap
-                  0x0003a6                  ___simple_malloc
+                  0x00041e                  ___expand_heap
+                  0x0003a8                  ___simple_malloc
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00071e                  _af_raspi
-                  0x0004c8                  _gethl
-                  0x000490                  _getindex
-                  0x0004ac                  _getindexhigh
-                  0x00049e                  _getindexlow
-                  0x0004ba                  _getorder
-                  0x000430                  _i2cinitm
-                  0x000468                  _i2cinits
-                  0x000440                  _i2cmsend
-                  0x000592                  _i2csend
-                  0x00051c                  _i2csendread10bit
-                  0x0007de                  _main
-                  0x0004d4                  _mergeindex
-                  0x000674                  _pconfig
-                  0x000770                  _processSamples
-                  0x0007fa                  _set_clkswitch
-                  0x0008f2                  _set_dma
-                  0x000850                  _set_outcomp
-                  0x0008ca                  _set_timer
-                  0x0005b2                  _storeindex
-                  0x000608                  _treati2c
+                  0x000720                  _af_raspi
+                  0x0004ca                  _gethl
+                  0x000492                  _getindex
+                  0x0004ae                  _getindexhigh
+                  0x0004a0                  _getindexlow
+                  0x0004bc                  _getorder
+                  0x000432                  _i2cinitm
+                  0x00046a                  _i2cinits
+                  0x000442                  _i2cmsend
+                  0x000594                  _i2csend
+                  0x00051e                  _i2csendread10bit
+                  0x0007e0                  _main
+                  0x0004d6                  _mergeindex
+                  0x000676                  _pconfig
+                  0x000772                  _processSamples
+                  0x0007fc                  _set_clkswitch
+                  0x0008f4                  _set_dma
+                  0x000852                  _set_outcomp
+                  0x0008cc                  _set_timer
+                  0x0005b4                  _storeindex
+                  0x00060a                  _treati2c
 
 Memory Configuration
 
@@ -368,7 +368,7 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x230
+.text             0x000200        0x232
  *(.init)
  .init            0x000200         0x4c c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -385,53 +385,53 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libfx-elf.a
                   0x0002cc                  __T2Interrupt
                   0x0002d4                  __ADC1Interrupt
                   0x000304                  __SI2C1Interrupt
- .isr.text        0x00032c         0x34 build/XC16_24FJ256GA110/debug/traps.o
+ .isr.text        0x00032c         0x36 build/XC16_24FJ256GA110/debug/traps.o
                   0x00032c                  __OscillatorFail
                   0x000332                  __AddressError
-                  0x000338                  __StackError
-                  0x00033e                  __MathError
-                  0x000344                  __AltOscillatorFail
-                  0x00034a                  __AltAddressError
-                  0x000350                  __AltStackError
-                  0x000356                  __AltMathError
-                  0x00035c                  __DefaultInterrupt
+                  0x00033a                  __StackError
+                  0x000340                  __MathError
+                  0x000346                  __AltOscillatorFail
+                  0x00034c                  __AltAddressError
+                  0x000352                  __AltStackError
+                  0x000358                  __AltMathError
+                  0x00035e                  __DefaultInterrupt
  *(.libc)
- .libc            0x000360         0x2a c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(sbrk.Meo)
-                  0x000360                  _sbrk
- .libc            0x00038a         0x1a c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(brk.Meo)
-                  0x00038a                  _brk
+ .libc            0x000362         0x2a c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(sbrk.Meo)
+                  0x000362                  _sbrk
+ .libc            0x00038c         0x1a c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(brk.Meo)
+                  0x00038c                  _brk
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x0003a4          0x2 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt_start_mode_normal.Meo)
-                  0x0003a4                  __crt_start_mode
-                  0x0003a4                  __crt_start_mode_normal
+                  0x0003a6          0x2 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-pic30-elf.a(crt_start_mode_normal.Meo)
+                  0x0003a6                  __crt_start_mode
+                  0x0003a6                  __crt_start_mode_normal
  .libc.__simple_malloc
-                  0x0003a6         0x76 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a(lite_malloc.XX_o)
-                  0x0003a6                  ___malloc0
-                  0x0003a6                  _malloc
-                  0x0003a6                  ___simple_malloc
+                  0x0003a8         0x76 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a(lite_malloc.XX_o)
+                  0x0003a8                  ___malloc0
+                  0x0003a8                  _malloc
+                  0x0003a8                  ___simple_malloc
  .libc.__expand_heap
-                  0x00041c         0x14 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a(expand_heap.XX_o)
-                  0x00041c                  ___expand_heap
+                  0x00041e         0x14 c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a(expand_heap.XX_o)
+                  0x00041e                  ___expand_heap
 
 usercode
  *(usercode)
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS†Ùd
+ __FBS.sec        0xf80000          0x2 /CW/_FBSÄ‘e
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSS‡/Y
+ __FSS.sec        0xf80002          0x2 /CW/_FSS†.Z
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS–Y
+ __FGS.sec        0xf80004          0x2 /CW/_FGSêZ
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -1257,9 +1257,9 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/XC16_24FJ256GA110/debug/HSNB-Alignment-PIC-CCD.debug.elf elf32-pic30)
-LOAD /CW/_FGS–Y
-LOAD /CW/_FSS‡/Y
-LOAD /CW/_FBS†Ùd
+LOAD /CW/_FGSêZ
+LOAD /CW/_FSS†.Z
+LOAD /CW/_FBSÄ‘e
 LOAD jump_table
 LOAD data_init
 
@@ -1431,41 +1431,41 @@ __c30_signature
  .aivt._AltMathError
                   0x00010c          0x2 build/XC16_24FJ256GA110/debug/traps.o
 
-.text             0x000430        0x45e
- .text            0x000430        0x244 build/XC16_24FJ256GA110/debug/i2c.o
-                  0x000430                  _i2cinitm
-                  0x000440                  _i2cmsend
-                  0x000468                  _i2cinits
-                  0x000490                  _getindex
-                  0x00049e                  _getindexlow
-                  0x0004ac                  _getindexhigh
-                  0x0004ba                  _getorder
-                  0x0004c8                  _gethl
-                  0x0004d4                  _mergeindex
-                  0x00051c                  _i2csendread10bit
-                  0x000592                  _i2csend
-                  0x0005b2                  _storeindex
-                  0x000608                  _treati2c
- .text            0x000674         0xfc build/XC16_24FJ256GA110/debug/pconfig.o
-                  0x000674                  _pconfig
-                  0x00071e                  _af_raspi
- .text            0x000770         0x8a build/XC16_24FJ256GA110/debug/main.o
-                  0x000770                  _processSamples
-                  0x0007de                  _main
- .text            0x0007fa         0x56 build/XC16_24FJ256GA110/debug/clkswitch.o
-                  0x0007fa                  _set_clkswitch
- .text            0x000850         0x3e build/XC16_24FJ256GA110/debug/oc.o
-                  0x000850                  _set_outcomp
+.text             0x000432        0x45e
+ .text            0x000432        0x244 build/XC16_24FJ256GA110/debug/i2c.o
+                  0x000432                  _i2cinitm
+                  0x000442                  _i2cmsend
+                  0x00046a                  _i2cinits
+                  0x000492                  _getindex
+                  0x0004a0                  _getindexlow
+                  0x0004ae                  _getindexhigh
+                  0x0004bc                  _getorder
+                  0x0004ca                  _gethl
+                  0x0004d6                  _mergeindex
+                  0x00051e                  _i2csendread10bit
+                  0x000594                  _i2csend
+                  0x0005b4                  _storeindex
+                  0x00060a                  _treati2c
+ .text            0x000676         0xfc build/XC16_24FJ256GA110/debug/pconfig.o
+                  0x000676                  _pconfig
+                  0x000720                  _af_raspi
+ .text            0x000772         0x8a build/XC16_24FJ256GA110/debug/main.o
+                  0x000772                  _processSamples
+                  0x0007e0                  _main
+ .text            0x0007fc         0x56 build/XC16_24FJ256GA110/debug/clkswitch.o
+                  0x0007fc                  _set_clkswitch
+ .text            0x000852         0x3e build/XC16_24FJ256GA110/debug/oc.o
+                  0x000852                  _set_outcomp
 
-.dinit            0x00088e         0x3c
- .dinit           0x00088e         0x3c data_init
+.dinit            0x000890         0x3c
+ .dinit           0x000890         0x3c data_init
 
-.text             0x0008ca         0x5a
- .text            0x0008ca         0x28 build/XC16_24FJ256GA110/debug/timer.o
-                  0x0008ca                  _set_timer
- .text            0x0008f2         0x26 build/XC16_24FJ256GA110/debug/dma.o
-                  0x0008f2                  _set_dma
- .text            0x000918          0x6 build/XC16_24FJ256GA110/debug/system.o
-                  0x000918                  _ConfigureOscillator
- .text            0x00091e          0x6 build/XC16_24FJ256GA110/debug/user.o
-                  0x00091e                  _InitApp
+.text             0x0008cc         0x5a
+ .text            0x0008cc         0x28 build/XC16_24FJ256GA110/debug/timer.o
+                  0x0008cc                  _set_timer
+ .text            0x0008f4         0x26 build/XC16_24FJ256GA110/debug/dma.o
+                  0x0008f4                  _set_dma
+ .text            0x00091a          0x6 build/XC16_24FJ256GA110/debug/system.o
+                  0x00091a                  _ConfigureOscillator
+ .text            0x000920          0x6 build/XC16_24FJ256GA110/debug/user.o
+                  0x000920                  _InitApp

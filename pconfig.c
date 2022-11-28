@@ -75,7 +75,7 @@ void pconfig (void){
     IFS0bits.AD1IF = 0; // Clear the Analog-to-Digital interrupt flag bit
     IPC3bits.AD1IP = 6;
     AD1CON1bits.ADON = 1;               //ADC Start
-    IEC0bits.AD1IE = 0; // Do Not Enable Analog-to-Digital interrupt
+    IEC0bits.AD1IE = 0; // Do Not Enable Analog-to-Digital interrupt = 0
     
     //PORT CONFIG END
     
