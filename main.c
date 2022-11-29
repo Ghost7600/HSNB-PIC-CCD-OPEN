@@ -120,7 +120,7 @@ while(1)
    
    //debug =1;
 
-   af_raspi(); // waits and setups after raspis signal
+   //af_raspi(); // waits and setups after raspis signal
    
     while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
         {

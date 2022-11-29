@@ -60,7 +60,7 @@ byteinfo* i2cinits() {
     I2CCONbits.SCLREL = 1; //Release i2c clock SHOULD SET AT THE END OF EVERY TRANSMIT
     I2CCONbits.DISSLW = 1; //DISABLE SLEW RATE CONTROL, CONTROL ONLY REQUIRED FOR 400KHZ
     I2CTRN = 0; //Clear Transmission Register
-    I2CADD = 8;
+    I2CADD = 10;
     IEC1bits.SI2CIE = 1; // enable SI2CIF interrupt SlaveI2CFlag
     IFS1bits.SI2CIF = 0;
 
@@ -74,12 +74,31 @@ byteinfo* i2cinits() {
 
 int getindex(byteinfo* datas) {
     return datas ->index;
+}
 
+uint8_t bytesplit (volatile unsigned int ((*inputbuffer)[NPIXEL]), int index, int flag) //flag 0 for highbyte 1 for lowbte
+{
+    int t;
+    switch (flag)
+    {
+        case 0: t = *(inputbuffer[index]);
+        t = t & 0xFF00;
+        t = t >> 8;
+        break;
+        
+        case 1: t = *(inputbuffer[index]);
+        t = t & 0xFF00;
+        t = t >> 8;
+        break;
+    }
 }
 
 int getcounter(byteinfo* datas) {
     return datas ->counter;
+}
 
+int getreadcounter(byteinfo* datas) {
+    return datas ->readcounter;
 }
 
 int getindexlow(byteinfo* datas) {
@@ -118,35 +137,31 @@ void i2csendread10bit(volatile unsigned int ((*inputbuffer)[NPIXEL]), byteinfo *
 
     //int index = mergeindex(datas); commented to allow index incrementation
     int index = getindex(datas);
-    
-    if (getcounter(datas) == READ2)
+    uint8_t send;
+    switch(getreadcounter(datas))
     {
-        i2csend(inputbuffer[index] && 0x00FF); //sending lowbyte
-        datas-> counter = 0;
+        case 0:  send = (bytesplit(inputbuffer,index,0));
+         i2csend(send);
+        datas->readcounter = READ2;
+        break;
+        
+        case READ2:
+        send = (bytesplit(inputbuffer,index,1));
+        i2csend(send);
+        datas-> readcounter = 0;
+        break;
     }
     
-    
-    if (getcounter(datas) == LOWINDEX)
-    {
-        i2csend((inputbuffer[index] && 0xFF00) >> 8);
-        datas->counter = READ2; 
-    }
      //sending highbzte
 
     //datas->index = getindex(datas) + 1; //incremental mode
-
-
-
-
-
     //    char lowbyte,highbyte =0x0;
     //    lowbyte = (0x00FF && data); //lowbyte extrahieren 
     //    highbyte = (0xFF00 && data) >> 8;
     //datas->byte++;
-
 }
 
-void i2csend(char data) {
+void i2csend(uint8_t data) {
 
     while (I2CSTATbits.IWCOL == 0 && I2CSTATbits.TBF == 0) //No collision AND Transmit complete
     {
@@ -213,7 +228,6 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
     }
 
     if (I2CSTATbits.D_A == 0) {
-        data->counter = 0;
         data->testflag = (gettestflag(data) + 1);
         I2CSTATbits.I2COV = 0;
         I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
@@ -223,7 +237,14 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
             I2CCONbits.SCLREL = 0;
             int tmp = I2CRCV;
         }
-        data->counter = 0;
+        
+        if (I2CSTATbits.R_W == 1) {
+           i2csendread10bit(bfrptr, data);
+        }
+        else
+        {
+        data->counter = 0;        
+        }
     }
 
     if (I2CSTATbits.I2COV == 1) {
