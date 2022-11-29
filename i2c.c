@@ -76,21 +76,25 @@ int getindex(byteinfo* datas) {
     return datas ->index;
 }
 
-uint8_t bytesplit (volatile unsigned int ((*inputbuffer)[NPIXEL]), int index, int flag) //flag 0 for highbyte 1 for lowbte
+uint8_t bytesplit (volatile unsigned int ((*inputbuffer)), int index, int flag) //flag 0 for highbyte 1 for lowbte
 {
+    volatile unsigned int *end;
     int t;
     switch (flag)
     {
-        case 0: t = *(inputbuffer[index]);
+        case 0: end = (inputbuffer+(index));
+        t = *end;
         t = t & 0xFF00;
         t = t >> 8;
         break;
         
-        case 1: t = *(inputbuffer[index]);
+        case 1: end = (inputbuffer+(index));
+        t = *end;
         t = t & 0xFF00;
         t = t >> 8;
         break;
     }
+    return t;
 }
 
 int getcounter(byteinfo* datas) {

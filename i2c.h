@@ -53,7 +53,7 @@ void i2cmsend(char sadd, char data);
 void i2cwrite(void);
 void i2csendread10bit(volatile unsigned int (*inputbuffer)[NPIXEL], byteinfo *datas);
 void i2csend(uint8_t data);
-uint8_t bytesplit (volatile unsigned int ((*inputbuffer)[NPIXEL]), int index, int flag);
+uint8_t bytesplit (volatile unsigned int ((*inputbuffer)), int index, int flag);
 int getindex(byteinfo *datas);
 int getcounter(byteinfo* datas);
 int gettestflag(byteinfo* datas);
