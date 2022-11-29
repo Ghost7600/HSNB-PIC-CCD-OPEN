@@ -86,12 +86,12 @@ uint8_t bytesplit (volatile unsigned int ((*inputbuffer)), int index, int flag) 
         t = *end;
         t = t & 0xFF00;
         t = t >> 8;
+        t = t & 0x00FF;
         break;
         
         case 1: end = (inputbuffer+(index));
         t = *end;
-        t = t & 0xFF00;
-        t = t >> 8;
+        t = t & 0x00FF;
         break;
     }
     return t;
@@ -144,7 +144,8 @@ void i2csendread10bit(volatile unsigned int ((*inputbuffer)[NPIXEL]), byteinfo *
     uint8_t send;
     switch(getreadcounter(datas))
     {
-        case 0:  send = (bytesplit(inputbuffer,index,0));
+        case 0:  
+        send = (bytesplit(inputbuffer,index,0));
          i2csend(send);
         datas->readcounter = READ2;
         break;
