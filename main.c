@@ -47,6 +47,8 @@
    //volatile unsigned char I2CDataBuffer[NPIXEL][2]; //Der Buffer wird über I²C an Raspi gesendet
     volatile unsigned int i=0;               //Bufferindex 
     volatile unsigned int c=0;
+    volatile unsigned int adcounter = 0;
+    volatile unsigned int *counterptr = &adcounter;
     volatile byteinfo *sadd;
    //volatile unsigned int *bfrptr;
    
@@ -116,20 +118,19 @@ int main(void) {
 while(1)
     {
     //Query I2C when to start
-   //while (start_flag == 0){};          //wait for start signal from Raspi
-   
-   //debug =1;
+//   while (getorder(ptr) != MEASURE);          //wait for start signal from Raspi
+////   
+////   //debug =1;
+////
+//   af_raspi(); // waits and setups after raspis signal
+//   
+//    while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
+//        {
+//        Nop();
+//        }
+//       i = 0;
+//    IEC0bits.AD1IE = 0;
 
-   //af_raspi(); // waits and setups after raspis signal
-   
-    while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
-        {
-        Nop();
-        }
-       i = 0;
-    IEC0bits.AD1IE = 0;
-//    processSamples(buffer, I2CDataBuffer, NPIXEL);
-//    transfer_info();
     }
     
 }
@@ -152,9 +153,9 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 {
-    if(i<=NPIXEL)   {
-                    buffer[i]= ADCBUF0;
-                    i++;
+    if(adcounter<=NPIXEL)   {
+                    buffer[adcounter]= ADCBUF0;
+                    adcounter++;
                     }
     else{
         c = 4723;
@@ -169,7 +170,7 @@ void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
     I2C1CONbits.SCLREL = 0; //holds clock
     int recieve = I2CRCV; // reads buffer to clear register and store data
     while(_RBF);
-    treati2c(ptr,bfrptr,recieve);   
+    treati2c(ptr,bfrptr,recieve,counterptr);   
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag
 }

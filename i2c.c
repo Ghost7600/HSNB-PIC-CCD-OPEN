@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <p24Hxxxx.h>
 #include "i2c.h"
+#include "pconfig.h"
 
 #define FOSC 8000000 //cystal oscilator frequency
 #define FCYY FOSC /2
@@ -68,6 +69,8 @@ byteinfo* i2cinits() {
 
     saddress = malloc(sizeof (struct byteinfo));
 
+    
+    
     return saddress;
     // STATUS REGISTER   
 }
@@ -190,8 +193,9 @@ void storeindex(byteinfo* data, int order) {
     }
 }
 
-void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int order) {
+void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int order, volatile unsigned int *counterptr) {
 
+    int tmp;
     if (I2CSTATbits.D_A == 1) {
         data -> testflag = 0;
         if (I2CSTATbits.R_W == 0) //case master is trying to write
@@ -216,6 +220,17 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
                 {
                     case INDEXING: data->counter = 1;
                         break;
+                        
+                    case MEASURE: 
+                            af_raspi(); // waits and setups after raspis signal
+   
+                            while(*counterptr<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
+                            {
+                             Nop();
+                            }
+                            *counterptr = 0;
+                            IEC0bits.AD1IE = 0;
+                            break;
                 }
             }
 
@@ -236,11 +251,11 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
         data->testflag = (gettestflag(data) + 1);
         I2CSTATbits.I2COV = 0;
         I2CCONbits.SCLREL = 0; // HOLDS CLOCK LOW FOR SPLITTING BITS
-        int tmp = I2CRCV;
+        tmp = I2CRCV;
         while (_RBF) {
             I2CSTATbits.I2COV = 0;
             I2CCONbits.SCLREL = 0;
-            int tmp = I2CRCV;
+            tmp = I2CRCV;
         }
         
         if (I2CSTATbits.R_W == 1) {
