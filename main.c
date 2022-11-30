@@ -85,9 +85,9 @@ int main(void) {
     
 //    set_dma(); // DMA Setup
 //    
-//    set_timer(); // Timer Setup
+    set_timer(); // Timer Setup
 //   
-//    set_outcomp();
+    set_outcomp();
 //        
 //    set_clkswitch();
 //    
@@ -122,14 +122,14 @@ while(1)
 ////   
 ////   //debug =1;
 ////
-//   af_raspi(); // waits and setups after raspis signal
-//   
-//    while(i<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
-//        {
-//        Nop();
-//        }
-//       i = 0;
-//    IEC0bits.AD1IE = 0;
+   af_raspi(); // waits and setups after raspis signal
+   
+    while(adcounter < NPIXEL)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
+        {
+        Nop();
+        }
+       adcounter = 0;
+  //  IEC0bits.AD1IE = 0;
 
     }
     
@@ -154,11 +154,11 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 {
     if(adcounter<=NPIXEL)   {
-                    buffer[adcounter]= ADCBUF0;
+                    buffer[adcounter]= ADC1BUF0;
                     adcounter++;
                     }
     else{
-        c = 4723;
+        //c = 4723;
         }
     IFS0bits.AD1IF=0;
     return;
@@ -169,7 +169,12 @@ void __attribute__((interrupt, no_auto_psv)) _SI2C1Interrupt(void)
     I2CSTATbits.I2COV = 0;
     I2C1CONbits.SCLREL = 0; //holds clock
     int recieve = I2CRCV; // reads buffer to clear register and store data
-    while(_RBF);
+    I2C1CONbits.SCLREL = 0; //holds clock
+    while(_RBF){
+        I2CSTATbits.I2COV = 0;
+    int recieve = I2CRCV; // reads buffer to clear register and store data
+    I2C1CONbits.SCLREL = 0; //holds clock
+    }
     treati2c(ptr,bfrptr,recieve,counterptr);   
     I2C1CONbits.SCLREL = 1; // RELEASE CLOCK;
     IFS1bits.SI2C1IF = 0; //Clears interrupt flag

@@ -223,13 +223,14 @@ void treati2c(byteinfo *data, volatile unsigned int (*bfrptr) [NPIXEL], int orde
                         
                     case MEASURE: 
                             af_raspi(); // waits and setups after raspis signal
-   
+                            IEC0bits.AD1IE = 1;
                             while(*counterptr<= 2547)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
                             {
+                             IEC0bits.AD1IE = 1;
                              Nop();
                             }
                             *counterptr = 0;
-                            IEC0bits.AD1IE = 0;
+                            //IEC0bits.AD1IE = 0;
                             break;
                 }
             }
