@@ -93,6 +93,7 @@ int main(void) {
 //    
     sadd = i2cinits();
     
+    af_raspi(); // waits and setups after raspis signal
 //    i2cinitm();
 //    
 //    while (1)
@@ -122,7 +123,7 @@ while(1)
 ////   
 ////   //debug =1;
 ////
-   af_raspi(); // waits and setups after raspis signal
+   
    
     while(adcounter < NPIXEL)            //T1 (Wartezeit wenn SH LOW & ICG HIGH)
         {

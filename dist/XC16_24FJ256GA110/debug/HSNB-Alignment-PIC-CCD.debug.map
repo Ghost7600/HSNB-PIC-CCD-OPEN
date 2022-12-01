@@ -4,11 +4,11 @@ Tool Name:
   c:\program files\microchip\xc16\v2.00\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00001888.00 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00001888.01 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00001888.02 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00001888.03 \
-  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp00001888.04 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000008a8.00 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000008a8.01 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000008a8.02 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000008a8.03 \
+  -TC:\\Users\\hahn\\AppData\\Local\\Temp\\tmp000008a8.04 \
   -p24HJ128GP202 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/dsPIC33F-GP-MC_DFP/1.3.64/xc16 \
   -o \
@@ -113,11 +113,11 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x24c           0x372  (882)
-.text                        0x44c               0x580           0x840  (2112)
-.dinit                       0x9cc                0x2e            0x45  (69)
-.text                        0x9fa                0x5a            0x87  (135)
+.text                        0x44c               0x582           0x843  (2115)
+.dinit                       0x9ce                0x2e            0x45  (69)
+.text                        0x9fc                0x5a            0x87  (135)
 
-                 Total "program" memory used (bytes):          0xc7e  (3198) 2%
+                 Total "program" memory used (bytes):          0xc81  (3201) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -223,20 +223,20 @@ External Symbols in Program Memory (by address):
                   0x00085a                  _af_raspi
                   0x0008ac                  _processSamples
                   0x00091a                  _main
-                  0x000938                  _set_clkswitch
-                  0x00098e                  _set_outcomp
-                  0x0009fa                  _set_timer
-                  0x000a22                  _set_dma
-                  0x000a48                  _ConfigureOscillator
-                  0x000a4e                  _InitApp
+                  0x00093a                  _set_clkswitch
+                  0x000990                  _set_outcomp
+                  0x0009fc                  _set_timer
+                  0x000a24                  _set_dma
+                  0x000a4a                  _ConfigureOscillator
+                  0x000a50                  _InitApp
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000a48                  _ConfigureOscillator
-                  0x000a4e                  _InitApp
+                  0x000a4a                  _ConfigureOscillator
+                  0x000a50                  _InitApp
                   0x0002d4                  __ADC1Interrupt
                   0x00034c                  __AddressError
                   0x000366                  __AltAddressError
@@ -277,10 +277,10 @@ External Symbols in Program Memory (by name):
                   0x000584                  _mergeindex
                   0x0007b0                  _pconfig
                   0x0008ac                  _processSamples
-                  0x000938                  _set_clkswitch
-                  0x000a22                  _set_dma
-                  0x00098e                  _set_outcomp
-                  0x0009fa                  _set_timer
+                  0x00093a                  _set_clkswitch
+                  0x000a24                  _set_dma
+                  0x000990                  _set_outcomp
+                  0x0009fc                  _set_timer
                   0x00064a                  _storeindex
                   0x000676                  _treati2c
 
@@ -431,17 +431,17 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS†‰u
+ __FBS.sec        0xf80000          0x2 /CW/_FBSp¥U
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSS 9k
+ __FSS.sec        0xf80002          0x2 /CW/_FSSê‚J
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS)k
+ __FGS.sec        0xf80004          0x2 /CW/_FGSbJ
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -505,20 +505,20 @@ __FUID3
  .debug_abbrev    0x00073f         0xb4 build/XC16_24FJ256GA110/debug/clkswitch.o
  .debug_abbrev    0x0007f3        0x17e build/XC16_24FJ256GA110/debug/i2c.o
 
-.debug_line       0x000000        0xa51
+.debug_line       0x000000        0xa54
  *(.debug_line)
  .debug_line      0x000000         0x1a build/XC16_24FJ256GA110/debug/configuration_bits.o
  .debug_line      0x00001a         0x1a build/XC16_24FJ256GA110/debug/interrupts.o
- .debug_line      0x000034        0x171 build/XC16_24FJ256GA110/debug/main.o
- .debug_line      0x0001a5         0x38 build/XC16_24FJ256GA110/debug/system.o
- .debug_line      0x0001dd        0x121 build/XC16_24FJ256GA110/debug/traps.o
- .debug_line      0x0002fe         0x34 build/XC16_24FJ256GA110/debug/user.o
- .debug_line      0x000332        0x111 build/XC16_24FJ256GA110/debug/timer.o
- .debug_line      0x000443        0x10b build/XC16_24FJ256GA110/debug/dma.o
- .debug_line      0x00054e        0x147 build/XC16_24FJ256GA110/debug/pconfig.o
- .debug_line      0x000695        0x10c build/XC16_24FJ256GA110/debug/oc.o
- .debug_line      0x0007a1        0x112 build/XC16_24FJ256GA110/debug/clkswitch.o
- .debug_line      0x0008b3        0x19e build/XC16_24FJ256GA110/debug/i2c.o
+ .debug_line      0x000034        0x174 build/XC16_24FJ256GA110/debug/main.o
+ .debug_line      0x0001a8         0x38 build/XC16_24FJ256GA110/debug/system.o
+ .debug_line      0x0001e0        0x121 build/XC16_24FJ256GA110/debug/traps.o
+ .debug_line      0x000301         0x34 build/XC16_24FJ256GA110/debug/user.o
+ .debug_line      0x000335        0x111 build/XC16_24FJ256GA110/debug/timer.o
+ .debug_line      0x000446        0x10b build/XC16_24FJ256GA110/debug/dma.o
+ .debug_line      0x000551        0x147 build/XC16_24FJ256GA110/debug/pconfig.o
+ .debug_line      0x000698        0x10c build/XC16_24FJ256GA110/debug/oc.o
+ .debug_line      0x0007a4        0x112 build/XC16_24FJ256GA110/debug/clkswitch.o
+ .debug_line      0x0008b6        0x19e build/XC16_24FJ256GA110/debug/i2c.o
 
 .debug_frame      0x000000        0x4f4
  *(.debug_frame)
@@ -1267,9 +1267,9 @@ LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.00/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/XC16_24FJ256GA110/debug/HSNB-Alignment-PIC-CCD.debug.elf elf32-pic30)
-LOAD /CW/_FGS)k
-LOAD /CW/_FSS 9k
-LOAD /CW/_FBS†‰u
+LOAD /CW/_FGSbJ
+LOAD /CW/_FSSê‚J
+LOAD /CW/_FBSp¥U
 LOAD jump_table
 LOAD data_init
 
@@ -1438,7 +1438,7 @@ __c30_signature
  .aivt._AltMathError
                   0x00010c          0x2 build/XC16_24FJ256GA110/debug/traps.o
 
-.text             0x00044c        0x580
+.text             0x00044c        0x582
  .text            0x00044c        0x364 build/XC16_24FJ256GA110/debug/i2c.o
                   0x00044c                  _i2cinitm
                   0x00045c                  _i2cmsend
@@ -1460,23 +1460,23 @@ __c30_signature
  .text            0x0007b0         0xfc build/XC16_24FJ256GA110/debug/pconfig.o
                   0x0007b0                  _pconfig
                   0x00085a                  _af_raspi
- .text            0x0008ac         0x8c build/XC16_24FJ256GA110/debug/main.o
+ .text            0x0008ac         0x8e build/XC16_24FJ256GA110/debug/main.o
                   0x0008ac                  _processSamples
                   0x00091a                  _main
- .text            0x000938         0x56 build/XC16_24FJ256GA110/debug/clkswitch.o
-                  0x000938                  _set_clkswitch
- .text            0x00098e         0x3e build/XC16_24FJ256GA110/debug/oc.o
-                  0x00098e                  _set_outcomp
+ .text            0x00093a         0x56 build/XC16_24FJ256GA110/debug/clkswitch.o
+                  0x00093a                  _set_clkswitch
+ .text            0x000990         0x3e build/XC16_24FJ256GA110/debug/oc.o
+                  0x000990                  _set_outcomp
 
-.dinit            0x0009cc         0x2e
- .dinit           0x0009cc         0x2e data_init
+.dinit            0x0009ce         0x2e
+ .dinit           0x0009ce         0x2e data_init
 
-.text             0x0009fa         0x5a
- .text            0x0009fa         0x28 build/XC16_24FJ256GA110/debug/timer.o
-                  0x0009fa                  _set_timer
- .text            0x000a22         0x26 build/XC16_24FJ256GA110/debug/dma.o
-                  0x000a22                  _set_dma
- .text            0x000a48          0x6 build/XC16_24FJ256GA110/debug/system.o
-                  0x000a48                  _ConfigureOscillator
- .text            0x000a4e          0x6 build/XC16_24FJ256GA110/debug/user.o
-                  0x000a4e                  _InitApp
+.text             0x0009fc         0x5a
+ .text            0x0009fc         0x28 build/XC16_24FJ256GA110/debug/timer.o
+                  0x0009fc                  _set_timer
+ .text            0x000a24         0x26 build/XC16_24FJ256GA110/debug/dma.o
+                  0x000a24                  _set_dma
+ .text            0x000a4a          0x6 build/XC16_24FJ256GA110/debug/system.o
+                  0x000a4a                  _ConfigureOscillator
+ .text            0x000a50          0x6 build/XC16_24FJ256GA110/debug/user.o
+                  0x000a50                  _InitApp
