@@ -93,7 +93,7 @@ int main(void) {
 //    
     sadd = i2cinits();
     
-    af_raspi(); // waits and setups after raspis signal
+    //af_raspi(); // waits and setups after raspis signal
 //    i2cinitm();
 //    
 //    while (1)
